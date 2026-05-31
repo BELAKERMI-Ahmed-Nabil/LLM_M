@@ -1,0 +1,691 @@
+text,span,label,ordinal,ac,ot
+"['The ambience was so fun , and the prices were great , on top of the fact that the food was really tasty .']",ambience,positive,0,ambience general,fun
+"['The ambience was so fun , and the prices were great , on top of the fact that the food was really tasty .']",food,positive,0,food quality,tasty
+"[""Eating in , the atmosphere saves it , but at your desk , it 's a very disappointing experience .""]",atmosphere,positive,0,ambience general,saves
+"['The fish was adequate , but inexpertly sliced .']",fish,negative,0,food style_options,adequate
+"['The fish was adequate , but inexpertly sliced .']",fish,negative,0,food style_options,inexpertly sliced
+['Try sushimi cucumber roll .'],sushimi cucumber roll,positive,0,food quality,Try
+['The sushi seemed pretty fresh and was adequately proportioned .'],sushi,positive,0,food quality,fresh
+['The sushi seemed pretty fresh and was adequately proportioned .'],sushi,positive,0,food style_options,proportioned
+"['The food is very average ... the Thai fusion stuff is a bit too sweet , every thing they serve is too sweet here .']",food,negative,0,food quality,average
+"['The food is very average ... the Thai fusion stuff is a bit too sweet , every thing they serve is too sweet here .']",Thai fusion stuff,negative,0,food quality,too sweet
+"['Terrible , terrible management - deserves to be shut-down .']",management,negative,0,service general,Terrible
+"['Terrible , terrible management - deserves to be shut-down .']",management,negative,0,service general,terrible
+['I am relatively new to the area and tried Pick a bgel on 2nd and was disappointed with the service and I thought the food was overated and on the pricey side .'],service,negative,0,service general,disappointed
+['I am relatively new to the area and tried Pick a bgel on 2nd and was disappointed with the service and I thought the food was overated and on the pricey side .'],food,negative,0,food prices,pricey
+['I am relatively new to the area and tried Pick a bgel on 2nd and was disappointed with the service and I thought the food was overated and on the pricey side .'],food,negative,0,food quality,overated
+"['The quantity is also very good , you will come out satisfied .']",quantity,positive,0,food style_options,good
+"['The quantity is also very good , you will come out satisfied .']",quantity,positive,0,food style_options,satisfied
+['Not enough wines by the glass either .'],wines by the glass,negative,0,drinks style_options,Not enough
+"[""but when we looked at the menu , there weren 't a lot of choices , most of them were dumplings in the appetizer section .""]",menu,negative,0,food style_options,weren 't a lot of choices
+"['The kitchen however , is almost always slow .']",kitchen,negative,0,service general,slow
+['Awsome Pizza especially the Margheritta slice .'],Pizza,positive,0,food quality,Awsome
+['Awsome Pizza especially the Margheritta slice .'],Margheritta slice,positive,0,food quality,Awsome
+"['The food however , is what one might expect .']",food,negative,0,food quality,expect
+"[""It 's simply the best meal in NYC .""]",meal,positive,0,food quality,best
+"['From the spectacular caviar to the hospitable waitstaff , I felt like royalty and enjoyed every second of it .']",caviar,positive,0,food quality,spectacular
+"['From the spectacular caviar to the hospitable waitstaff , I felt like royalty and enjoyed every second of it .']",caviar,positive,0,food quality,enjoyed
+"['From the spectacular caviar to the hospitable waitstaff , I felt like royalty and enjoyed every second of it .']",waitstaff,positive,0,service general,hospitable
+"['From the spectacular caviar to the hospitable waitstaff , I felt like royalty and enjoyed every second of it .']",waitstaff,positive,0,service general,enjoyed
+"['The entree was bland and small , dessert was not inspired .']",entree,negative,0,food quality,bland
+"['The entree was bland and small , dessert was not inspired .']",entree,negative,0,food style_options,small
+"['The entree was bland and small , dessert was not inspired .']",dessert,negative,0,food quality,not inspired
+"['The spicy tuna roll was unusually good and the rock shrimp tempura was awesome , great appetizer to share !']",spicy tuna roll,positive,0,food quality,good
+"['The spicy tuna roll was unusually good and the rock shrimp tempura was awesome , great appetizer to share !']",rock shrimp tempura,positive,0,food quality,awesome
+"['The decor in this place is very diner-ish and the kind of place you expect in the East Village - not romantic , just simple , small and sparse .']",decor,neutral,0,ambience general,diner-ish
+['The pizza is delicious and the proprietor is one of the nicest in NYC .'],pizza,positive,0,food quality,delicious
+['The pizza is delicious and the proprietor is one of the nicest in NYC .'],proprietor,positive,0,service general,nicest
+"[""The place is small and intimate and you may feel a little crowded , but the service is excellent and it 's great for friends out , a romantic date , or a special occassion .""]",service,positive,0,service general,excellent
+"[""The place is small and intimate and you may feel a little crowded , but the service is excellent and it 's great for friends out , a romantic date , or a special occassion .""]",place,negative,0,ambience general,crowded
+"[""The place is small and intimate and you may feel a little crowded , but the service is excellent and it 's great for friends out , a romantic date , or a special occassion .""]",place,positive,0,restaurant miscellaneous,small
+"[""The place is small and intimate and you may feel a little crowded , but the service is excellent and it 's great for friends out , a romantic date , or a special occassion .""]",place,positive,0,restaurant miscellaneous,intimate
+['I have been coming here for years and have nothing but good things to say about the service and the great staff at La Lanterna .'],service,positive,0,service general,good
+['I have been coming here for years and have nothing but good things to say about the service and the great staff at La Lanterna .'],staff,positive,0,service general,great
+"['The signs , the specials menus , food , and even all the waitstaff are ALL TOTALLY Japanese .']",signs,positive,0,restaurant miscellaneous,Japanese
+"['The signs , the specials menus , food , and even all the waitstaff are ALL TOTALLY Japanese .']",specials menus,positive,0,food style_options,Japanese
+"['The signs , the specials menus , food , and even all the waitstaff are ALL TOTALLY Japanese .']",food,positive,0,food quality,Japanese
+"['The signs , the specials menus , food , and even all the waitstaff are ALL TOTALLY Japanese .']",waitstaff,positive,0,service general,Japanese
+['The wine list is excellent .'],wine list,positive,0,drinks style_options,excellent
+['The setting is casual and romantic .'],setting,positive,0,ambience general,casual
+['The setting is casual and romantic .'],setting,positive,0,ambience general,romantic
+"['Average to good Thai food , but terrible delivery .']",Thai food,positive,0,food quality,Average to good
+"['Average to good Thai food , but terrible delivery .']",delivery,negative,0,service general,terrible
+['Zero ambiance to boot .'],ambiance,negative,0,ambience general,Zero
+"[""A restaurant that does n't try to do anything except serve great food with great service in a pleasant atmosphere .""]",food,positive,0,food quality,great
+"[""A restaurant that does n't try to do anything except serve great food with great service in a pleasant atmosphere .""]",service,positive,0,service general,great
+"[""A restaurant that does n't try to do anything except serve great food with great service in a pleasant atmosphere .""]",atmosphere,positive,0,ambience general,pleasant
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",atmosphere,positive,0,ambience general,unheralded
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",service,positive,0,service general,impecible
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",food,positive,0,food quality,magnificant
+"['The fish was really , really fresh .']",fish,positive,0,food quality,fresh
+['The owner truly caters to all your needs .'],owner,positive,0,service general,caters to all your needs
+"[""I had never had Edamame pureed before but I thought it was innovative and tasty ( could 've used a bit more salt ) .""]",Edamame pureed,positive,0,food quality,tasty
+"[""I had never had Edamame pureed before but I thought it was innovative and tasty ( could 've used a bit more salt ) .""]",Edamame pureed,positive,0,food style_options,innovative
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",Guacamole+shrimp appetizer,positive,0,food quality,great
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",filet,positive,0,food quality,good
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",frites,negative,0,food quality,did n't much like
+"[""The food is decent at best , and the ambience , well , it 's a matter of opinion , some may consider it to be a sweet thing , I thought it was just annoying .""]",food,negative,0,food quality,decent
+"[""The food is decent at best , and the ambience , well , it 's a matter of opinion , some may consider it to be a sweet thing , I thought it was just annoying .""]",ambience,negative,0,ambience general,annoying
+"['Luckily we saved room for the BBQ Salmon , Sea Bass and Crispy Duck .']",BBQ Salmon,positive,0,food quality,Luckily
+"['Luckily we saved room for the BBQ Salmon , Sea Bass and Crispy Duck .']",Sea Bass,positive,0,food quality,Luckily
+"['Luckily we saved room for the BBQ Salmon , Sea Bass and Crispy Duck .']",Crispy Duck,positive,0,food quality,Luckily
+['The food looked very appetizing and delicious since it came on a variety of fancy plates .'],food,positive,0,food style_options,appetizing
+['The food looked very appetizing and delicious since it came on a variety of fancy plates .'],food,positive,0,food style_options,delicious
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],selection of thin crust pizza,positive,0,food style_options,good
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],selection of thin crust pizza,positive,0,food quality,good
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],pizza place,positive,0,restaurant general,nice
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],Basil slice,positive,0,food quality,good
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",staff,positive,0,service general,accomodating
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",food,positive,0,food quality,delicious
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",place,positive,0,ambience general,lovely
+['Fish is so very fresh .'],Fish,positive,0,food quality,fresh
+['This tiny Williamsburg spot is always pleasantly surprising .'],Williamsburg spot,positive,0,restaurant general,surprising
+"['Quite frankly , this is some of the worst sushi I have ever tried .']",sushi,negative,0,food quality,worst
+['Service is fast and friendly .'],Service,positive,0,service general,fast
+['Service is fast and friendly .'],Service,positive,0,service general,friendly
+"['The portions are HUGE , so it might be good to order three things to split ( rather than one appetizer and entree per person ) for two people .']",portions,neutral,0,food style_options,HUGE
+['Thank You Emilio .'],Emilio,positive,0,restaurant general,Thank You
+"['The pasta penne was pretty extra buttery , creamy which means a big task to diggest . . tasty at first but i would say that i was full with a slice of pizza and 7 to count , penne ... got a little moody afterwards cause was stuffed ... lol']",pasta penne,negative,0,food quality,extra buttery
+"['The pasta penne was pretty extra buttery , creamy which means a big task to diggest . . tasty at first but i would say that i was full with a slice of pizza and 7 to count , penne ... got a little moody afterwards cause was stuffed ... lol']",pasta penne,negative,0,food style_options,moody
+['The place is a BISTRO which means : simple dishes and wine served efficiently in a bustling atmosphere .'],dishes,positive,0,food style_options,simple
+['The place is a BISTRO which means : simple dishes and wine served efficiently in a bustling atmosphere .'],atmosphere,positive,0,ambience general,bustling
+"['I have known about this secret for the last 13 years , Emilio ( the Godfather ) has continued to serve food and wine for the gods at mortal prices .']",food,positive,0,food quality,gods
+"['I have known about this secret for the last 13 years , Emilio ( the Godfather ) has continued to serve food and wine for the gods at mortal prices .']",wine,positive,0,drinks quality,gods
+"['I have known about this secret for the last 13 years , Emilio ( the Godfather ) has continued to serve food and wine for the gods at mortal prices .']",food,positive,0,food prices,mortal
+"['I have known about this secret for the last 13 years , Emilio ( the Godfather ) has continued to serve food and wine for the gods at mortal prices .']",wine,positive,0,drinks prices,mortal
+['bottles of wine are cheap and good .'],bottles of wine,positive,0,drinks prices,cheap
+['bottles of wine are cheap and good .'],bottles of wine,positive,0,drinks quality,good
+['Our family never expected such incredible entertainment in a restaurant .'],entertainment,positive,0,ambience general,incredible
+['I almost hesititate to write a review because the atmosphere was so great and I would hate for it too become to crowded .'],atmosphere,positive,0,ambience general,great
+['The place is so cool and the service is prompt and curtious .'],service,positive,0,service general,prompt
+['The place is so cool and the service is prompt and curtious .'],service,positive,0,service general,curtious
+['The place is so cool and the service is prompt and curtious .'],place,positive,0,ambience general,cool
+['I would highly recommend this place !'],place,positive,0,restaurant general,recommend
+['Faan is sooo good .'],Faan,positive,0,restaurant general,good
+"[""The ambience was nice , but service was n't so great .""]",ambience,positive,0,ambience general,nice
+"[""The ambience was nice , but service was n't so great .""]",service,negative,0,service general,was n't so great
+['Make sure you try this place as often as you can .'],place,positive,0,restaurant general,try
+"['If you are the type of person who likes being scared and entertained , this is a great place to go and eat .']",place,positive,0,restaurant miscellaneous,great
+"['I have reservations about the all you can eat deal , however -- the choices are fairly limited and you can probably order more food than you can eat for less than $ 18 by just going off the menu .']",all you can eat deal,negative,0,food style_options,limited
+"['I have reservations about the all you can eat deal , however -- the choices are fairly limited and you can probably order more food than you can eat for less than $ 18 by just going off the menu .']",all you can eat deal,negative,0,food prices,limited
+"['The svc can be a bit rude at times , esp if you have big group , but overall the restaurant is a must !']",svc,negative,0,service general,rude
+"['The svc can be a bit rude at times , esp if you have big group , but overall the restaurant is a must !']",restaurant,positive,0,restaurant general,must
+"['I have eaten at Saul , many times , the food is always consistently , outrageously good .']",food,positive,0,food quality,good
+['I fell in love with the egg noodles in the beef broth with shrimp dumplings and slices of BBQ roast pork .'],egg noodles in the beef broth with shrimp dumplings and slices of BBQ roast pork,positive,0,food quality,love
+['LLOOVVE THIS PLACE .'],PLACE,positive,0,restaurant general,LLOOVVE
+['This place is incredibly tiny .'],place,negative,0,ambience general,tiny
+['Problem is nothing at Prune is particularly memorable .'],Prune,negative,0,restaurant general,memorable
+"['delicious bagels , especially when right out of the oven .']",bagels,positive,0,food quality,delicious
+['This restaurant was way overhyped .'],restaurant,negative,0,restaurant general,overhyped
+"['A gentleman , maybe the manager , came to our table , and without so much as a smile or greeting asked for our order .']",gentleman,negative,0,service general,without so much as a smile or greeting
+['The food is great .'],food,positive,0,food quality,great
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",decor,positive,0,ambience general,Fabulous
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",food,positive,0,food quality,good
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",food,positive,0,food prices,cheaply-priced
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",staff,positive,0,service general,friendly
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",Rice Avenue,positive,0,ambience general,feel at home
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",Rice Avenue,positive,0,location general,very Soho /Village /Upper West Side
+"[""Fabulous decor - makes you feel like you 're in a trendy Manhattan restaurant , very very good food , cheaply-priced , generally friendly staff , and if you 're a Manhattanite , or spend most of your time in Manhattan , Rice Avenue will make you feel at home ... ..very Soho /Village /Upper West Side minus the expensive prices and pretentious clientele ... ..all on Roosevelt Avenue !""]",Rice Avenue,positive,0,restaurant prices,minus the expensive prices
+['The food is a diamond in rough -- the food is delicious and homemade with the perfect balance of herbs and tomatoes .'],food,positive,0,food quality,diamond
+['The food is a diamond in rough -- the food is delicious and homemade with the perfect balance of herbs and tomatoes .'],balance of herbs and tomatoes,positive,0,food quality,perfect
+['The buffet had a nice selection .'],buffet,positive,0,food style_options,nice
+"[""One would think we 'd get an apology or complimentary drinks - instead , we got a snobby waiter would n't even take our order for 15 minutes and gave us lip when we asked him to do so .""]",waiter,negative,0,service general,snobby
+['The food is tasty and portion sizes are appropriate .'],food,positive,0,food quality,tasty
+['The food is tasty and portion sizes are appropriate .'],portion sizes,positive,0,food style_options,appropriate
+['I have to highly recommend the lobster roll - not to much mayo ; you can tell it was a fresh lobster .'],lobster roll,positive,0,food quality,recommend
+['I have to highly recommend the lobster roll - not to much mayo ; you can tell it was a fresh lobster .'],lobster,positive,0,food quality,fresh
+['Thius is a must for anyone who loves Shabu-Shabu .'],Shabu-Shabu,positive,0,food quality,loves
+"['The first time I went , and was completely taken by the live jazz band and atmosphere , I ordered the Lobster Cobb Salad .']",live jazz band,positive,0,ambience general,taken
+"['The first time I went , and was completely taken by the live jazz band and atmosphere , I ordered the Lobster Cobb Salad .']",atmosphere,positive,0,ambience general,taken
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",food,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",mussels in spicy tomato sauce,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",mussels in spicy tomato sauce,positive,0,food quality,cooked-to-perfection
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",fries,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",fries,positive,0,food quality,crispy
+"[""Try their chef 's specials -- they are to die for .""]",chef 's specials,positive,0,food quality,Try
+"[""Try their chef 's specials -- they are to die for .""]",chef 's specials,positive,0,food quality,die for
+['Great atmoshere and worth every bit .'],atmoshere,positive,0,ambience general,Great
+"['However , I think Jeckll and Hydes t is one of those places that is fun to do once .']",Jeckll and Hydes,positive,0,restaurant general,fun
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",tables,negative,0,ambience general,crammed
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",tables,negative,0,ambience general,too close
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",menu,neutral,0,food style_options,typical
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",wine list,negative,0,drinks prices,overpriced
+"['If we were to move from the upper east side , we would genuinely miss this restaurant .']",restaurant,positive,0,restaurant general,miss
+['Tiny dessert was $ 8.00 ... just plain overpriced for what it is .'],dessert,negative,0,food quality,plain
+['Tiny dessert was $ 8.00 ... just plain overpriced for what it is .'],dessert,negative,0,food style_options,Tiny
+['Tiny dessert was $ 8.00 ... just plain overpriced for what it is .'],dessert,negative,0,food prices,overpriced
+['The place is small and cramped but the food is fantastic .'],place,negative,0,ambience general,small
+['The place is small and cramped but the food is fantastic .'],place,negative,0,ambience general,cramped
+['The place is small and cramped but the food is fantastic .'],food,positive,0,food quality,fantastic
+['and yes Dal Bukhara is so dam good and so are all the kababs .'],kababs,positive,0,food quality,good
+['and yes Dal Bukhara is so dam good and so are all the kababs .'],Dal Bukhara,positive,0,food quality,good
+['Warning : You may find it difficult to dine at other Japanese restaurants after a visit to Mizu !'],Mizu,positive,0,restaurant general,difficult
+['No gimmicks here -- the food speaks for itself in its freshness and preparation .'],food,positive,0,food quality,freshness
+['Great neighborhood joint .'],joint,positive,0,restaurant general,Great
+"['The decor is vibrant and eye-pleasing with several semi-private boths on the right side of the dining hall , which are great for a date .']",decor,positive,0,ambience general,vibrant
+"['The decor is vibrant and eye-pleasing with several semi-private boths on the right side of the dining hall , which are great for a date .']",decor,positive,0,ambience general,eye-pleasing
+"['The decor is vibrant and eye-pleasing with several semi-private boths on the right side of the dining hall , which are great for a date .']",semi-private boths,positive,0,ambience general,great
+['Check out the secret back room .'],back room,positive,0,ambience general,secret
+['This quaint and romantic trattoria is at the top of my Manhattan restaurant list .'],trattoria,positive,0,ambience general,quaint
+['This quaint and romantic trattoria is at the top of my Manhattan restaurant list .'],trattoria,positive,0,restaurant general,romantic
+['Enjoyed a very nice Caesar Salad while my wife had arugula and goat cheese ... both very tasty .'],Caesar Salad,positive,0,food quality,Enjoyed
+['Enjoyed a very nice Caesar Salad while my wife had arugula and goat cheese ... both very tasty .'],Caesar Salad,positive,0,food quality,nice
+['Enjoyed a very nice Caesar Salad while my wife had arugula and goat cheese ... both very tasty .'],arugula and goat cheese,positive,0,food quality,tasty
+"['We ordered the special , grilled branzino , that was so infused with bone , it was difficult to eat .']",grilled branzino,negative,0,food quality,difficult to eat
+"[""Do n't judge this place prima facie , you have to try it to believe it , a home away from home for the literate heart .""]",place,positive,0,restaurant general,try it and believe it
+['The cold appetizer dishes taste like the way I remember them to taste when I was growing up in Taiwan .'],cold appetizer dishes,positive,0,food quality,like the way I remember them
+"['With the great variety on the menu , I eat here often and never get bored .']",menu,positive,0,food style_options,great variety
+"['Food was just average ... if they lowered the prices just a bit , it would be a bigger draw .']",Food,neutral,0,food quality,average
+"['The last two times I ordered from here my food was soo spicy that I could barely eat it , and the spice took away from the flavor of the dish .']",food,negative,0,food quality,spicy
+"['The last two times I ordered from here my food was soo spicy that I could barely eat it , and the spice took away from the flavor of the dish .']",spice,negative,0,food quality,could barely eat it
+"['Great wine selection , Gigondas is worth the price , and the house champagne is a great value .']",wine selection,positive,0,drinks style_options,Great
+"['Great wine selection , Gigondas is worth the price , and the house champagne is a great value .']",Gigondas,positive,0,drinks quality,worth the price
+"['Great wine selection , Gigondas is worth the price , and the house champagne is a great value .']",house champagne,positive,0,drinks prices,great value
+"[""Friendly staff that actually lets you enjoy your meal and the company you 're with .""]",staff,positive,0,service general,Friendly
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",vibe,positive,0,ambience general,relaxed
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",vibe,positive,0,ambience general,cozy
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",service,positive,0,service general,great
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",food,positive,0,food quality,excellent
+"[""It 's definately not a place to go if you want to impress someone .""]",place,negative,0,restaurant miscellaneous,impress
+"['My husband and I thougt it would be great to go to the Jekyll and Hyde Pub for our anniversary , and to our surprise it was fantastic .']",Jekyll and Hyde Pub,positive,0,restaurant general,great
+"['My husband and I thougt it would be great to go to the Jekyll and Hyde Pub for our anniversary , and to our surprise it was fantastic .']",Jekyll and Hyde Pub,positive,0,restaurant general,fantastic
+['An excellent service'],service,positive,0,service general,excellent
+"[""This is the kind of place you 'd like to take all your friends to and still keep a secret .""]",place,positive,0,restaurant miscellaneous,like
+"['Well , this place is so Ghetto its not even funny .']",place,negative,0,ambience general,Ghetto
+"['Well , this place is so Ghetto its not even funny .']",place,negative,0,ambience general,not even funny
+['If you want good authentic Thai this place is not the place to go .'],Thai,negative,0,food quality,good authentic
+"['Have recommended the place to friends , always gets good response .']",place,positive,0,restaurant miscellaneous,recommended
+"['The food is good , especially their more basic dishes , and the drinks are delicious .']",food,positive,0,food quality,good
+"['The food is good , especially their more basic dishes , and the drinks are delicious .']",basic dishes,positive,0,food quality,good
+"['The food is good , especially their more basic dishes , and the drinks are delicious .']",drinks,positive,0,drinks quality,delicious
+"['The ambience is pretty and nice for conversation , so a casual lunch here would probably be best .']",ambience,positive,0,ambience general,pretty
+"['The ambience is pretty and nice for conversation , so a casual lunch here would probably be best .']",ambience,positive,0,ambience general,nice
+"['Love the scene first off- the place has a character and nice light to it..very fortunate , location wise .']",scene,positive,0,ambience general,Love
+"['Love the scene first off- the place has a character and nice light to it..very fortunate , location wise .']",place,positive,0,ambience general,nice
+"['Love the scene first off- the place has a character and nice light to it..very fortunate , location wise .']",location,positive,0,location general,fortunate
+['I started out with a Bombay beer which was big enough for two .'],Bombay beer,positive,0,drinks style_options,big
+['She was very helpful in suggesting us drinks and helped us in ordering a lot of good dishes since we knew nothing about Indian food .'],dishes,positive,0,food quality,good
+['I also recommend the rice dishes or the different varieties of congee ( rice porridge ) .'],rice dishes,positive,0,food quality,recommend
+['I also recommend the rice dishes or the different varieties of congee ( rice porridge ) .'],congee ( rice porridge ),positive,0,food quality,recommend
+"['While the ambiance and atmosphere were great , the food and service could have been a lot better .']",ambiance,positive,0,ambience general,great
+"['While the ambiance and atmosphere were great , the food and service could have been a lot better .']",atmosphere,positive,0,ambience general,great
+"['While the ambiance and atmosphere were great , the food and service could have been a lot better .']",food,negative,0,food quality,could have been a lot better
+"['While the ambiance and atmosphere were great , the food and service could have been a lot better .']",service,negative,0,service general,could have been a lot better
+['What a great place .'],place,positive,0,restaurant general,great
+"['Interesting selection , good wines , service fine , fun decor .']",wines,positive,0,drinks quality,good
+"['Interesting selection , good wines , service fine , fun decor .']",service,positive,0,service general,fine
+"['Interesting selection , good wines , service fine , fun decor .']",decor,positive,0,ambience general,fun
+"['Interesting selection , good wines , service fine , fun decor .']",selection,positive,0,food style_options,Interesting
+['Service was slow had to wait to order and get food although not crowded .'],Service,negative,0,service general,slow
+"[""i 've been to sapphire twice and both times the food was fine , if not good .""]",food,positive,0,food quality,fine
+['The takeout is great too since they give high quality tupperware as well .'],takeout,positive,0,service general,great
+"[""I like the ambience , it 's very dark and original .""]",ambience,positive,0,ambience general,like
+"[""I like the ambience , it 's very dark and original .""]",ambience,positive,0,ambience general,dark
+"[""I like the ambience , it 's very dark and original .""]",ambience,positive,0,ambience general,original
+['Finally a reliable Chinese restaurant !'],Chinese restaurant,positive,0,restaurant general,reliable
+"[""Yes , they use fancy ingredients , but even fancy ingredients do n't make for good pizza unless someone knows how to get the crust right .""]",ingredients,positive,0,food quality,fancy
+"[""Yes , they use fancy ingredients , but even fancy ingredients do n't make for good pizza unless someone knows how to get the crust right .""]",pizza,negative,0,food quality,do n't make for good pizza
+"[""The service varys from day to day- sometimes they 're very nice , and sometimes not .""]",service,negative,0,service general,varys
+['We had the scallops as an appetizer and they were delicious and the sauce was wonderful .'],scallops,positive,0,food quality,delicious
+['We had the scallops as an appetizer and they were delicious and the sauce was wonderful .'],sauce,positive,0,food quality,wonderful
+['The pizza is yummy and I like the atmoshpere .'],pizza,positive,0,food quality,yummy
+['The pizza is yummy and I like the atmoshpere .'],atmoshpere,positive,0,ambience general,like
+['He offers subpar service and has no personality .'],service,negative,0,service general,subpar
+"['This is such a lovely , peaceful place to eat outside .']",place,positive,0,ambience general,lovely
+"['This is such a lovely , peaceful place to eat outside .']",place,positive,0,ambience general,peaceful
+"[""Even if the food was n't this good , the garden is a great place to sit outside and relax .""]",garden,positive,0,ambience general,great
+"[""Even if the food was n't this good , the garden is a great place to sit outside and relax .""]",food,positive,0,food quality,was n't this good
+"['the only things u could really taste are the very salty soy sauce ( even its low sodium ) , the vinegar-soaked rice , and the scallion on top of the fish .']",soy sauce,negative,0,food quality,salty
+"['the only things u could really taste are the very salty soy sauce ( even its low sodium ) , the vinegar-soaked rice , and the scallion on top of the fish .']",rice,negative,0,food quality,vinegar-soaked
+['All the staff is absolutely professional ! !'],staff,positive,0,service general,professional
+"[""Rao is a good restaurant , but it 's nothing special .""]",Rao,neutral,0,restaurant general,good
+['The food was pretty tradional but it was hot and good with large portions .'],food,positive,0,food quality,tradional
+['The food was pretty tradional but it was hot and good with large portions .'],portions,positive,0,food style_options,large
+['The pizza is overpriced and soggy .'],pizza,negative,0,food quality,soggy
+['The pizza is overpriced and soggy .'],pizza,negative,0,food prices,overpriced
+['The restaurant is cute but not upscale .'],restaurant,neutral,0,restaurant general,cute
+['The restaurant is cute but not upscale .'],restaurant,neutral,0,restaurant general,not upscale
+"[""The best pad thai i 've ever had .""]",pad thai,positive,0,food quality,best
+['Delicious crab cakes too .'],crab cakes,positive,0,food quality,Delicious
+['Very good wine choices .'],wine choices,positive,0,drinks style_options,good
+"['The food is amazing , rich pastas and fresh doughy pizza .']",food,positive,0,food quality,amazing
+"['The food is amazing , rich pastas and fresh doughy pizza .']",pastas,positive,0,food style_options,rich
+"['The food is amazing , rich pastas and fresh doughy pizza .']",pizza,positive,0,food quality,fresh doughy
+"['Good , fast service .']",service,positive,0,service general,Good
+"['Good , fast service .']",service,positive,0,service general,fast
+['Great staff .'],staff,positive,0,service general,Great
+"['Its location is good and the fact that Hutner College is near and their prices are very reasonable , makes students go back to Suan again and again .']",location,positive,0,location general,good
+"['Its location is good and the fact that Hutner College is near and their prices are very reasonable , makes students go back to Suan again and again .']",Suan,positive,0,restaurant prices,reasonable
+"['In the evening , this place attracted a well dressed , with it , NY crowd .']",crowd,positive,0,restaurant miscellaneous,attracted
+['This place has the best Chinese style BBQ ribs in the city .'],BBQ ribs,positive,0,food quality,best
+['This place has the best Chinese style BBQ ribs in the city .'],BBQ ribs,positive,0,food style_options,best
+"[""But that was n't the icing on the cake : a tiramisu that resembled nothing I have ever had .""]",tiramisu,negative,0,food quality,nothing
+"[""Service was devine , oysters where a sensual as they come , and the price ca n't be beat ! ! !""]",Service,positive,0,service general,devine
+"[""Service was devine , oysters where a sensual as they come , and the price ca n't be beat ! ! !""]",oysters,positive,0,food quality,sensual
+"['Food was very good , but not what I would consider out of this world .']",Food,neutral,0,food quality,good
+"['Looking around , I saw a room full of New Yorkers enjoying a real meal in a real restaurant , not a clubhouse of the fabulous trying to be seen .']",meal,positive,0,food quality,real
+"['Looking around , I saw a room full of New Yorkers enjoying a real meal in a real restaurant , not a clubhouse of the fabulous trying to be seen .']",restaurant,positive,0,ambience general,real
+['It is one the nicest outdoor restaurants I have ever seen in NY -- I am from Italy and this place rivals the ones in my country .'],outdoor restaurants,positive,0,ambience general,nicest
+['I highly recommend visiting this restaurant and having dinner and drinks !'],restaurant,positive,0,restaurant general,recommend
+['I was here a few weeks back and we had the worst customer service experience at a restaurant ever .'],customer service,negative,0,service general,worst
+['Best Reuben sandwich ever !'],Reuben sandwich,positive,0,food quality,Best
+['Our server was very helpful and friendly .'],server,positive,0,service general,helpful
+['Our server was very helpful and friendly .'],server,positive,0,service general,friendly
+['My roommate and I LOVE this place .'],place,positive,0,restaurant general,LOVE
+"['Although the tables may be closely situated , the candle-light , food quality and service overcompensate .']",candle-light,positive,0,ambience general,overcompensate
+"['Although the tables may be closely situated , the candle-light , food quality and service overcompensate .']",food,positive,0,food quality,overcompensate
+"['Although the tables may be closely situated , the candle-light , food quality and service overcompensate .']",service,positive,0,service general,overcompensate
+"['Although the tables may be closely situated , the candle-light , food quality and service overcompensate .']",tables,negative,0,ambience general,closely situated
+['Winnie and her staff are the best crew you can find serving you .'],staff,positive,0,service general,best
+['Winnie and her staff are the best crew you can find serving you .'],Winnie,positive,0,service general,best
+['Food was good and the view of the new york city skiline was terrific even on a foggy rainy day like that of when I went .'],Food,positive,0,food quality,good
+['Food was good and the view of the new york city skiline was terrific even on a foggy rainy day like that of when I went .'],view of the new york city skiline,positive,0,location general,terrific
+"['Pizza is terrific , as is homemade pasta .']",Pizza,positive,0,food quality,terrific
+"['Pizza is terrific , as is homemade pasta .']",homemade pasta,positive,0,food quality,terrific
+['I recently tried Suan and I thought that it was great .'],Suan,positive,0,restaurant general,great
+"['Food was okay , nothing great .']",Food,neutral,0,food quality,okay
+"['Food was okay , nothing great .']",Food,neutral,0,food quality,nothing great
+['The sake menu should not be overlooked !'],sake menu,positive,0,drinks style_options,overlooked
+['I asked for a menu and the same waitress looked at my like I was insane .'],waitress,negative,0,service general,insane
+['The owner truly caters to all your needs .'],owner,positive,0,service general,caters to all your needs
+['A great place to meet up for some food and drinks ...'],place,positive,0,restaurant miscellaneous,great
+['The owner and staff are all Japanese as well and that adds to the entire ambiance .'],ambiance,positive,0,ambience general,adds
+"['The side dishes were passable , and I did get a refill upon request .']",side dishes,neutral,0,food quality,passable
+"['The side dishes were passable , and I did get a refill upon request .']",side dishes,positive,0,food style_options,refill
+"['Great friendly service , Fast seating , Fast Delivery , Excellent sushi .']",service,positive,0,service general,Great friendly
+"['Great friendly service , Fast seating , Fast Delivery , Excellent sushi .']",seating,positive,0,service general,Fast
+"['Great friendly service , Fast seating , Fast Delivery , Excellent sushi .']",Delivery,positive,0,service general,Fast
+"['Great friendly service , Fast seating , Fast Delivery , Excellent sushi .']",sushi,positive,0,food quality,Excellent
+['I went there for lunch and it was not as good as I expected from the reviews I read .'],lunch,negative,0,food quality,not as good as I expected
+['The stuff tilapia was horrid ... tasted like cardboard .'],stuff tilapia,negative,0,food quality,horrid
+['Subtle food and service'],food,positive,0,food quality,Subtle
+['Subtle food and service'],service,positive,0,service general,Subtle
+['Service was wonderful ;'],Service,positive,0,service general,wonderful
+['The food here does a great service to the name ( Cantonese that is ... ) .'],food,positive,0,food quality,great
+['This place is a great bargain .'],place,positive,0,restaurant prices,great bargain
+['great hot dogs .'],hot dogs,positive,0,food quality,great
+['The food was good too .'],food,positive,0,food quality,good
+['Winnie and her staff are the best crew you can find serving you .'],staff,positive,0,service general,best
+['Winnie and her staff are the best crew you can find serving you .'],Winnie,positive,0,service general,best
+"['Service was prompt , friendly and great .']",Service,positive,0,service general,prompt
+"['Service was prompt , friendly and great .']",Service,positive,0,service general,friendly
+"['Service was prompt , friendly and great .']",Service,positive,0,service general,great
+"['The ambience was so fun , and the prices were great , on top of the fact that the food was really tasty .']",ambience,positive,0,ambience general,fun
+"['The ambience was so fun , and the prices were great , on top of the fact that the food was really tasty .']",food,positive,0,food quality,tasty
+['the food is always fresh ...'],food,positive,0,food quality,fresh
+"['Excellent sashimi , and the millennium roll is beyond delicious .']",sashimi,positive,0,food quality,Excellent
+"['Excellent sashimi , and the millennium roll is beyond delicious .']",millennium roll,positive,0,food quality,delicious
+['Not a great place for family or general dining .'],place,negative,0,restaurant miscellaneous,Not a great
+"['The bagels always warm , soft on the inside , crispy on the outside and enormous in size .']",bagels,positive,0,food quality,warm
+"['The bagels always warm , soft on the inside , crispy on the outside and enormous in size .']",bagels,positive,0,food quality,soft
+"['The bagels always warm , soft on the inside , crispy on the outside and enormous in size .']",bagels,positive,0,food quality,crispy
+"['The bagels always warm , soft on the inside , crispy on the outside and enormous in size .']",bagels,positive,0,food style_options,enormous
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],selection of thin crust pizza,positive,0,food style_options,good
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],selection of thin crust pizza,positive,0,food quality,good
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],pizza place,positive,0,restaurant general,nice
+['This is a nice pizza place with good selection of thin crust pizza including the Basil slice .'],Basil slice,positive,0,food quality,good
+"['The food is very average ... the Thai fusion stuff is a bit too sweet , every thing they serve is too sweet here .']",food,negative,0,food quality,average
+"['The food is very average ... the Thai fusion stuff is a bit too sweet , every thing they serve is too sweet here .']",Thai fusion stuff,negative,0,food quality,too sweet
+"[""Our waitress was n't mean , but not especially warm or attentive either .""]",waitress,neutral,0,service general,was n't mean
+['The sauce tasted more like Chinese fast food than decent Korean .'],sauce,negative,0,food quality,Chinese fast food
+['Mussles and calamari were superb Saturday evening .'],Mussles,positive,0,food quality,superb
+['Mussles and calamari were superb Saturday evening .'],calamari,positive,0,food quality,superb
+"['The food is wonderful , tasty and filling , and the service is professional and friendly .']",food,positive,0,food quality,wonderful
+"['The food is wonderful , tasty and filling , and the service is professional and friendly .']",food,positive,0,food quality,tasty
+"['The food is wonderful , tasty and filling , and the service is professional and friendly .']",food,positive,0,food style_options,filling
+"['The food is wonderful , tasty and filling , and the service is professional and friendly .']",service,positive,0,service general,professional
+"['The food is wonderful , tasty and filling , and the service is professional and friendly .']",service,positive,0,service general,friendly
+['The service is awful .'],service,negative,0,service general,awful
+"['The fish was adequate , but inexpertly sliced .']",fish,negative,0,food style_options,adequate
+"['The fish was adequate , but inexpertly sliced .']",fish,negative,0,food style_options,inexpertly sliced
+"['Bagels are ok , but be sure not to make any special requests !']",Bagels,neutral,0,food quality,ok
+['Good Food'],Food,positive,0,food quality,Good
+"['The food was amazing , and the service was prompt and helpful , but not over-bearing or rushed .']",food,positive,0,food quality,amazing
+"['The food was amazing , and the service was prompt and helpful , but not over-bearing or rushed .']",service,positive,0,service general,prompt
+"['The food was amazing , and the service was prompt and helpful , but not over-bearing or rushed .']",service,positive,0,service general,helpful
+"['The food was amazing , and the service was prompt and helpful , but not over-bearing or rushed .']",service,positive,0,service general,not over-bearing or rushed
+"[""Sauce was watery and the food did n't have much flavor .""]",Sauce,negative,0,food quality,watery
+"[""Sauce was watery and the food did n't have much flavor .""]",food,negative,0,food quality,did n't have much flavor
+['The have a great cocktail with Citrus Vodka and lemon and lime juice and mint leaves that is to die for !'],cocktail with Citrus Vodka and lemon and lime juice and mint leaves,positive,0,drinks quality,great
+['The food was average or above including some surprising tasty dishes .'],food,positive,0,food quality,average or above
+['The food was average or above including some surprising tasty dishes .'],dishes,positive,0,food quality,tasty
+"['sometimes i get bad food and bad service , sometimes i get good good and bad service .']",food,negative,0,food quality,bad
+"['sometimes i get bad food and bad service , sometimes i get good good and bad service .']",service,negative,0,service general,bad
+"['sometimes i get bad food and bad service , sometimes i get good good and bad service .']",service,negative,0,service general,bad
+"['sometimes i get bad food and bad service , sometimes i get good good and bad service .']",good,positive,0,food quality,good
+['Best drumsticks over rice and sour spicy soup in town !'],drumsticks over rice,positive,0,food quality,Best
+['Best drumsticks over rice and sour spicy soup in town !'],sour spicy soup,positive,0,food quality,Best
+['The workers there also absolutely load the bagel with cream cheese ( gets a little messy ) .'],bagel,negative,0,food style_options,messy
+"['A few tips : skip the turnip cake , roast pork buns and egg custards .']",turnip cake,negative,0,food quality,skip
+"['A few tips : skip the turnip cake , roast pork buns and egg custards .']",roast pork buns,negative,0,food quality,skip
+"['A few tips : skip the turnip cake , roast pork buns and egg custards .']",egg custards,negative,0,food quality,skip
+['Vanison was good but not amazing .'],Vanison,neutral,0,food quality,good
+"[""But for the Shabu Shabu , you won 't find much better in NY .""]",Shabu Shabu,positive,0,food quality,won 't find much better
+['The Cypriot restaurant has a lot going for it .'],Cypriot restaurant,positive,0,restaurant general,a lot going
+"['I have worked in restaurants and cook a lot , and there is no way a maggot should be able to get into well prepared food .']",food,negative,0,food quality,well prepared
+"[""I 've been to at Cafe Spice probably 5-8 times , it is probably still the best Indian restaurant around Union Square .""]",Cafe Spice,positive,0,restaurant general,best
+"[""I really loved the different and inovated touch that 's the cheff gives to the food .""]",cheff,positive,0,food style_options,loved
+"[""I really loved the different and inovated touch that 's the cheff gives to the food .""]",cheff,positive,0,food style_options,inovated
+"[""The food is good , I ca n't lie .""]",food,positive,0,food quality,good
+"['Service , however , was excellent ... and I liked the setting/atmosphere a lot .']",Service,positive,0,service general,excellent
+"['Service , however , was excellent ... and I liked the setting/atmosphere a lot .']",setting/atmosphere,positive,0,ambience general,liked
+"['Food is usually very good , though ocasionally I wondered about freshmess of raw vegatables in side orders .']",Food,positive,0,food quality,good
+"['Food is usually very good , though ocasionally I wondered about freshmess of raw vegatables in side orders .']",raw vegatables in side orders,negative,0,food quality,wondered about freshmess
+"['My party had the BBE $ 29 fixe prix menu , which was such a wonderful deal since it also came with a flight of sake !']",BBE $ 29 fixe prix menu,positive,0,food prices,wonderful
+"['My party had the BBE $ 29 fixe prix menu , which was such a wonderful deal since it also came with a flight of sake !']",BBE $ 29 fixe prix menu,positive,0,food style_options,a flight of sake
+['The food is reliable and the price is moderate .'],food,positive,0,food quality,reliable
+['My roommate and I LOVE this place .'],place,positive,0,restaurant general,LOVE
+"[""If you like your music blasted and the system isnt that great and if you want to pay at least 100 dollar bottle minimun then you 'll love it here .""]",bottle,negative,0,drinks prices,love
+"[""If you like your music blasted and the system isnt that great and if you want to pay at least 100 dollar bottle minimun then you 'll love it here .""]",music,negative,0,ambience general,like
+"[""The best pad thai i 've ever had .""]",pad thai,positive,0,food quality,best
+"[""Each time we 've been , the front of house staff ( not the waiters - they 're fantastic - but the people who greet and seat you ) has been so hideous to us that were it not for the exceptional fish dishes I would never return .""]",waiters,positive,0,service general,fantastic
+"[""Each time we 've been , the front of house staff ( not the waiters - they 're fantastic - but the people who greet and seat you ) has been so hideous to us that were it not for the exceptional fish dishes I would never return .""]",front of house staff,negative,0,service general,hideous
+"[""Each time we 've been , the front of house staff ( not the waiters - they 're fantastic - but the people who greet and seat you ) has been so hideous to us that were it not for the exceptional fish dishes I would never return .""]",fish dishes,positive,0,food quality,exceptional
+['Possibly the Most Romantic Restaurant in the City'],Restaurant,positive,0,ambience general,Romantic
+['Although we were looking for regular lettuce and some walnuts the salads we got were great .'],salads,positive,0,food quality,great
+"['Service is not exactly five star , but thats not really a big deal .']",Service,neutral,0,service general,not exactly five star
+['The food is great and the environment is even better .'],food,positive,0,food quality,great
+['The food is great and the environment is even better .'],environment,positive,0,ambience general,better
+['The buffet had a nice selection .'],buffet,positive,0,food style_options,nice
+['Delivery is fast too .'],Delivery,positive,0,service general,fast
+['Best . Sushi . Ever .'],Sushi,positive,0,food quality,Best
+"['Good spreads , great beverage selections and bagels really tasty .']",spreads,positive,0,food quality,Good
+"['Good spreads , great beverage selections and bagels really tasty .']",beverage selections,positive,0,drinks style_options,great
+"['Good spreads , great beverage selections and bagels really tasty .']",bagels,positive,0,food quality,tasty
+"[""The concept of japanese tapas is newly created and clearly does n't work .""]",japanese tapas,negative,0,food style_options,does n't work
+['Very good wine choices .'],wine choices,positive,0,drinks style_options,good
+['I highly recommend the Sophia pizza .'],Sophia pizza,positive,0,food quality,recommend
+"['The service is excellent , the decor is great , and the food is delicious and comes in large portions .']",service,positive,0,service general,excellent
+"['The service is excellent , the decor is great , and the food is delicious and comes in large portions .']",decor,positive,0,ambience general,great
+"['The service is excellent , the decor is great , and the food is delicious and comes in large portions .']",food,positive,0,food quality,delicious
+"['The service is excellent , the decor is great , and the food is delicious and comes in large portions .']",portions,positive,0,food style_options,large
+"[""also it 's great to have dinner in a very romantic and comfortable place , the service it 's just perfect ... they 're so frendly that we never want to live the place !""]",place,positive,0,ambience general,romantic
+"[""also it 's great to have dinner in a very romantic and comfortable place , the service it 's just perfect ... they 're so frendly that we never want to live the place !""]",place,positive,0,ambience general,comfortable
+"[""also it 's great to have dinner in a very romantic and comfortable place , the service it 's just perfect ... they 're so frendly that we never want to live the place !""]",service,positive,0,service general,perfect
+['And $ 11 for a plate of bland guacamole ?'],guacamole,negative,0,food quality,bland
+['And $ 11 for a plate of bland guacamole ?'],guacamole,negative,0,food prices,bland
+['Ingredients are organic which is a real plus for me .'],Ingredients,positive,0,food quality,organic
+['Ingredients are organic which is a real plus for me .'],Ingredients,positive,0,food quality,plus
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",food,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",mussels in spicy tomato sauce,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",mussels in spicy tomato sauce,positive,0,food quality,cooked-to-perfection
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",fries,positive,0,food quality,yummy
+"['The food is yummy , especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries .']",fries,positive,0,food quality,crispy
+['Maitre-D- `` Eat and get out ``'],Maitre-D,negative,0,service general,get out
+['And evaluated on those terms Pastis is simply wonderful .'],Pastis,positive,0,restaurant general,wonderful
+['fresh restaurant was amazing ... ... .. food was delicious and of course fresh .'],fresh restaurant,positive,0,restaurant general,fresh
+['fresh restaurant was amazing ... ... .. food was delicious and of course fresh .'],fresh restaurant,positive,0,restaurant general,amazing
+['fresh restaurant was amazing ... ... .. food was delicious and of course fresh .'],food,positive,0,food quality,delicious
+['fresh restaurant was amazing ... ... .. food was delicious and of course fresh .'],food,positive,0,food quality,fresh
+['I was speechless by the horrible food .'],food,negative,0,food quality,speechless
+"['However , I think this place is a good hang out spot .']",place,positive,0,ambience general,good
+"['The decor in this place is very diner-ish and the kind of place you expect in the East Village - not romantic , just simple , small and sparse .']",decor,neutral,0,ambience general,diner-ish
+"[""Try the Pad Thai , or sample anything on the appetizer menu ... they 're all delicious .""]",Pad Thai,positive,0,food quality,Try
+"[""Try the Pad Thai , or sample anything on the appetizer menu ... they 're all delicious .""]",Pad Thai,positive,0,food quality,delicious
+"[""Try the Pad Thai , or sample anything on the appetizer menu ... they 're all delicious .""]",appetizer menu,positive,0,food quality,delicious
+['Ess-A-Bagel ( either by Sty-town or midtown ) is by far the best bagel in NY .'],bagel,positive,0,food quality,best
+"['Red Dragon Roll - my favorite thing to eat , of any food group - hands down']",Red Dragon Roll,positive,0,food quality,favorite
+"[""The rice to fish ration was also good -- they did n't try to overpack the rice .""]",rice to fish ration,positive,0,food style_options,good
+['They have authentic Indian at amazin prices .'],Indian,positive,0,food quality,authentic
+['They have authentic Indian at amazin prices .'],Indian,positive,0,food prices,authentic
+"['My father had the flank steak which was very good , and my mother had the swordfish .']",flank steak,positive,0,food quality,good
+"[""Fabulous food - if the front of house staff do n't put you off –""]",food,positive,0,food quality,Fabulous
+"[""Fabulous food - if the front of house staff do n't put you off –""]",front of house staff,negative,0,service general,put you off
+"['By far , the best pizza in Manhattan .']",pizza,positive,0,food quality,best
+"['Pizza is terrific , as is homemade pasta .']",Pizza,positive,0,food quality,terrific
+"['Pizza is terrific , as is homemade pasta .']",homemade pasta,positive,0,food quality,terrific
+"[""Raga 's is a romantic , cozy restaurant .""]",Raga 's,positive,0,ambience general,romantic
+"[""Raga 's is a romantic , cozy restaurant .""]",Raga 's,positive,0,ambience general,cozy
+['The location is perfect .'],location,positive,0,location general,perfect
+"[""This place doesn 't make any sense""]",place,negative,0,restaurant general,doesn 't make any sense
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",tables,negative,0,ambience general,crammed
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",tables,negative,0,ambience general,too close
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",menu,neutral,0,food style_options,typical
+"['The tables are crammed way too close , the menu is typical of any Italian restaurant , and the wine list is simply overpriced .']",wine list,negative,0,drinks prices,overpriced
+['The food was pretty tradional but it was hot and good with large portions .'],food,positive,0,food quality,tradional
+['The food was pretty tradional but it was hot and good with large portions .'],portions,positive,0,food style_options,large
+"['I have reservations about the all you can eat deal , however -- the choices are fairly limited and you can probably order more food than you can eat for less than $ 18 by just going off the menu .']",all you can eat deal,negative,0,food style_options,limited
+"['I have reservations about the all you can eat deal , however -- the choices are fairly limited and you can probably order more food than you can eat for less than $ 18 by just going off the menu .']",all you can eat deal,negative,0,food prices,limited
+['I have to say I have never had a disapointing meal here .'],meal,positive,0,food quality,never had a disapointing
+"['the spinach is fresh , definately not frozen ...']",spinach,positive,0,food quality,fresh
+['I had the Thai style Fried Sea Bass ... which was very good .'],Thai style Fried Sea Bass,positive,0,food quality,good
+['The view is breathtaking the service is top notch ... the ambiance is wonderful .'],view,positive,0,location general,breathtaking
+['The view is breathtaking the service is top notch ... the ambiance is wonderful .'],service,positive,0,service general,top notch
+['The view is breathtaking the service is top notch ... the ambiance is wonderful .'],ambiance,positive,0,ambience general,wonderful
+"[""The ambience was nice , but service was n't so great .""]",ambience,positive,0,ambience general,nice
+"[""The ambience was nice , but service was n't so great .""]",service,negative,0,service general,was n't so great
+['This place is not worth the prices .'],place,negative,0,restaurant general,not worth the prices
+['This place is not worth the prices .'],place,negative,0,restaurant prices,not worth the prices
+"[""We ate out in the back patio , which is worth it as it 's cool and the music is hear well there .""]",back patio,positive,0,ambience general,worth
+"[""We ate out in the back patio , which is worth it as it 's cool and the music is hear well there .""]",back patio,positive,0,ambience general,cool
+"[""We ate out in the back patio , which is worth it as it 's cool and the music is hear well there .""]",music,positive,0,ambience general,well
+['I did not try the caviar but I tried their salmon and crab salad ( they are all good )'],salmon,positive,0,food quality,good
+['I did not try the caviar but I tried their salmon and crab salad ( they are all good )'],crab salad,positive,0,food quality,good
+['We were seated outside and the waiter spilled red wine and hot tea on myself and my date .'],waiter,negative,0,service general,spilled
+['Great Indian food and the service is incredible .'],Indian food,positive,0,food quality,Great
+['Great Indian food and the service is incredible .'],service,positive,0,service general,incredible
+['The atmosphere is noisy and the waiters are literally walking around doing things as fast as they can .'],atmosphere,negative,0,ambience general,noisy
+['The atmosphere is noisy and the waiters are literally walking around doing things as fast as they can .'],waiters,positive,0,service general,fast
+"[""it 's a perfect place to have a amazing indian food .""]",indian food,positive,0,food quality,amazing
+"['The freshest , best variety , and the fastest delivery .']",delivery,positive,0,service general,fastest
+"['I found the food , service and value exceptional everytime I have been there .']",food,positive,0,food quality,exceptional
+"['I found the food , service and value exceptional everytime I have been there .']",service,positive,0,service general,exceptional
+"['I found the food , service and value exceptional everytime I have been there .']",value,positive,0,restaurant prices,exceptional
+"['In an area sadly lacking in decent Thai food , this is one of the best spots .']",Thai food,positive,0,food quality,decent
+['I got an excellent piece of cheesecake and we had several other nice pastries .'],cheesecake,positive,0,food quality,excellent
+['I got an excellent piece of cheesecake and we had several other nice pastries .'],pastries,positive,0,food quality,nice
+['I would highly recommend this place !'],place,positive,0,restaurant general,recommend
+"[""This is where it really really gets bad : the manager said , there is absolutely nothing we can do , it 's a matter of taste that she did n't like it , and I can not comp it .""]",manager,negative,0,service general,bad
+['THe perfect spot .'],spot,positive,0,restaurant general,perfect
+"['Service ok but unfriendly , filthy bathroom .']",Service,negative,0,service general,unfriendly
+"['Service ok but unfriendly , filthy bathroom .']",bathroom,negative,0,ambience general,filthy
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",staff,positive,0,service general,accomodating
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",food,positive,0,food quality,delicious
+"['The staff was accomodating , the food was absolutely delicious and the place is lovely .']",place,positive,0,ambience general,lovely
+"['good music , great food , speedy service affordable prices .']",music,positive,0,ambience general,good
+"['good music , great food , speedy service affordable prices .']",food,positive,0,food quality,great
+"['good music , great food , speedy service affordable prices .']",service,positive,0,service general,speedy
+['We were planning to get dessert but the waitress basically through the bill at us before we had a chance to order .'],waitress,negative,0,service general,through the bill
+['We had a great time at the Jekyll and hyde Pub last night .'],Jekyll and hyde Pub,positive,0,restaurant general,great time
+['The food is authentic Italian - delicious !'],food,positive,0,food quality,authentic Italian
+['The food is authentic Italian - delicious !'],food,positive,0,food quality,delicious
+['I thanked my friend who recommended me this restaurant and will certainly recommend it to others .'],restaurant,positive,0,restaurant general,recommend
+['Planet Thai is great !'],Planet Thai,positive,0,restaurant general,great
+"['To sum it up : Service varies from good to mediorce , depending on which waiter you get ; generally it is just average Ok .']",Service,neutral,0,service general,varies
+['Restaurant with a view'],view,neutral,0,location general,with a view
+"['The food was not fresh , the sauces were bland and very oily .']",food,negative,0,food quality,not fresh
+"['The food was not fresh , the sauces were bland and very oily .']",sauces,negative,0,food quality,bland
+"['The food was not fresh , the sauces were bland and very oily .']",sauces,negative,0,food quality,oily
+['I literally just got back home after visiting Casa La Femme and was so offended by my visit felt it necessary to try and warn other diners who value their money and time .'],Casa La Femme,negative,0,restaurant general,offended
+['I literally just got back home after visiting Casa La Femme and was so offended by my visit felt it necessary to try and warn other diners who value their money and time .'],Casa La Femme,negative,0,restaurant prices,offended
+"[""Rao 's has the best service and atmosphere in NYC .""]",service,positive,0,service general,best
+"[""Rao 's has the best service and atmosphere in NYC .""]",atmosphere,positive,0,ambience general,best
+['The place is a lot of fun .'],place,positive,0,ambience general,fun
+"['With the great variety on the menu , I eat here often and never get bored .']",menu,positive,0,food style_options,great variety
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",vibe,positive,0,ambience general,relaxed
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",vibe,positive,0,ambience general,cozy
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",service,positive,0,service general,great
+"['The vibe is very relaxed and cozy , service was great and the food was excellent !']",food,positive,0,food quality,excellent
+['I have lived in Japan for 7 years and the taste of the food and the feel of the restaurant is like being back in Japan .'],food,positive,0,food quality,like being back in Japan
+['I have lived in Japan for 7 years and the taste of the food and the feel of the restaurant is like being back in Japan .'],feel,positive,0,ambience general,like being back in Japan
+['If you like spicy food get the chicken vindaloo .'],chicken vindaloo,positive,0,food quality,get
+['Decor is nice though service can be spotty .'],Decor,positive,0,ambience general,nice
+['Decor is nice though service can be spotty .'],service,negative,0,service general,spotty
+"[""The atmosphere is n't the greatest , but I suppose that 's how they keep the prices down .""]",atmosphere,negative,0,ambience general,is n't the greatest
+"[""I can 't remember the last time I had such gross food in New York .""]",food,negative,0,food quality,gross
+['We ate at this Thai place following the reviews but very unhappy with the foods .'],foods,negative,0,food quality,unhappy
+"[""The pesto pizza was excellent , thin-crust pizza with a nice amount of spicy Italian cheese that I 'd never heard of before .""]",pesto pizza,positive,0,food quality,excellent
+"[""The pesto pizza was excellent , thin-crust pizza with a nice amount of spicy Italian cheese that I 'd never heard of before .""]",spicy Italian cheese,positive,0,food quality,nice
+"['Food took some time to prepare , all worth waiting for .']",Food,positive,0,food quality,worth
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",Leon,positive,0,ambience general,casual
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",Leon,positive,0,ambience general,hip
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",specials,positive,0,food quality,good
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",atmosphere,positive,0,ambience general,warm
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",atmosphere,positive,0,ambience general,lively
+"['Leon is an East Village gem : casual but hip , with well prepared basic French bistro fare , good specials , a warm and lively atmosphere .']",French bistro fare,positive,0,food quality,well prepared
+['Best meal in a long time !'],meal,positive,0,food quality,Best
+['As always we had a great glass of wine while we waited .'],glass of wine,positive,0,drinks quality,great
+"[""Hurley 's is like Cheers where everyone knows your name and they are ACTUALLY glad you came .""]",Hurley 's,positive,0,service general,glad
+['overpriced japanese food with mediocre service'],japanese food,negative,0,food prices,overpriced
+['overpriced japanese food with mediocre service'],service,neutral,0,service general,mediocre
+['I have been doing all of the above at the Heartland Brewery for over 5 years now and I HAVE NEVER BEEN DISAPPOINTED !'],Heartland Brewery,positive,0,restaurant general,NEVER BEEN DISAPPOINTED
+"[""We had Pam 's special fried fish and it was amazing .""]",Pam 's special fried fish,positive,0,food quality,amazing
+['The menu is limited but almost all of the dishes are excellent .'],menu,negative,0,food style_options,limited
+['The menu is limited but almost all of the dishes are excellent .'],dishes,positive,0,food quality,excellent
+['Everything about this restaurant was special .'],restaurant,positive,0,restaurant general,special
+['We did arrive late for our reservation so I can not complain too much about the wait for a table .'],wait,neutral,0,service general,can not complain too much
+['bad staff'],staff,negative,0,service general,bad
+['this little place has a cute interior decor and affordable city prices .'],interior decor,positive,0,ambience general,cute
+['this little place has a cute interior decor and affordable city prices .'],place,positive,0,restaurant prices,little
+"[""But $ 500 for a dinner for two that didn 't include Wine ?""]",dinner for two,negative,0,food prices,didn 't include Wine
+['This is a nice restaurant if you are looking for a good place to host an intimate dinner meeting with business associates .'],restaurant,positive,0,restaurant miscellaneous,nice
+['Try green curry with vegetables .'],green curry with vegetables,positive,0,food quality,Try
+['My boyfriend had the New England Chowder it was good but I think the award should go to the Lobster Bisque .'],New England Chowder,positive,0,food quality,good
+['My boyfriend had the New England Chowder it was good but I think the award should go to the Lobster Bisque .'],Lobster Bisque,positive,0,food quality,award
+['Love Pizza 33 ...'],Pizza 33,positive,0,restaurant general,Love
+['Poor service and management'],service,negative,0,service general,Poor
+['Poor service and management'],management,negative,0,service general,Poor
+['And the Tom Kha soup was pathetic .'],Tom Kha soup,negative,0,food quality,pathetic
+['The hostess and the waitress were incredibly rude and did everything they could to rush us out .'],hostess,negative,0,service general,rude
+['The hostess and the waitress were incredibly rude and did everything they could to rush us out .'],waitress,negative,0,service general,rude
+"['On a recent Sunday afternoon , a friend and I accidently found this great restaurant on our way to see the pulitzer prize winning play DOUBT .']",restaurant,positive,0,restaurant general,great
+['There is something about their atmosphere that makes me come back nearly every week .'],atmosphere,positive,0,ambience general,come back
+['Great Indian food'],Indian food,positive,0,food quality,Great
+"['THe back garden sitting area is very pleasant , where you can see their personal herb garden .']",back garden sitting area,positive,0,ambience general,pleasant
+"['The service was terrible , we had to wait for everything and ask several of different people for the same thing before we were allowed to be served .']",service,negative,0,service general,terrible
+"['Oh , and I never write reviews -- I just was so moved by how bad this place was , I felt it was my duty to spread the word .']",place,negative,0,restaurant general,bad
+['Not a very fancy place but very good Chinese style Indian food .'],place,neutral,0,ambience general,fancy
+['Not a very fancy place but very good Chinese style Indian food .'],Chinese style Indian food,positive,0,food quality,good
+['Wonderful strawberry daiquiries as well !'],strawberry daiquiries,positive,0,drinks quality,Wonderful
+['The food was lousy - too sweet or too salty and the portions tiny .'],food,negative,0,food quality,lousy
+['The food was lousy - too sweet or too salty and the portions tiny .'],food,negative,0,food quality,too sweet
+['The food was lousy - too sweet or too salty and the portions tiny .'],food,negative,0,food quality,too salty
+['The food was lousy - too sweet or too salty and the portions tiny .'],portions,negative,0,food style_options,tiny
+"['delicious bagels , especially when right out of the oven .']",bagels,positive,0,food quality,delicious
+['Although they do the typical what kind of water would you like questions the service was good and overall very relaxing to place to eat .'],service,positive,0,service general,good
+['Although they do the typical what kind of water would you like questions the service was good and overall very relaxing to place to eat .'],place,positive,0,ambience general,relaxing
+['I almost hesititate to write a review because the atmosphere was so great and I would hate for it too become to crowded .'],atmosphere,positive,0,ambience general,great
+"[""This was my frist time at Cafe St. Bart 's and I must say how delicious the food and the service was .""]",food,positive,0,food quality,delicious
+['The service was excellent and the food was delicious .'],service,positive,0,service general,excellent
+['The service was excellent and the food was delicious .'],food,positive,0,food quality,delicious
+"['The bar drinks were Eh , ok to say the least .']",bar drinks,negative,0,drinks quality,ok
+"['Considering we were the last patrons there and it was after the closing time , the waitstaff did not rush us at all and made us feel comfortable and relaxed .']",waitstaff,positive,0,service general,comfortable
+"['Considering we were the last patrons there and it was after the closing time , the waitstaff did not rush us at all and made us feel comfortable and relaxed .']",waitstaff,positive,0,service general,relaxed
+['The food is great .'],food,positive,0,food quality,great
+"['Great vibe , lots of people .']",vibe,positive,0,ambience general,Great
+"['This is undoubtedly my favorite modern Japanese brasserie ( that don ’ t serve sushi ) , and in my opinion , one of the most romantic restaurants in the city !']",modern Japanese brasserie,positive,0,restaurant general,favorite
+"['This is undoubtedly my favorite modern Japanese brasserie ( that don ’ t serve sushi ) , and in my opinion , one of the most romantic restaurants in the city !']",modern Japanese brasserie,positive,0,ambience general,romantic
+['The bread we received was horrible - rock hard and cold - and the `` free `` appetizer of olives was disappointing .'],bread,negative,0,food quality,horrible
+['The bread we received was horrible - rock hard and cold - and the `` free `` appetizer of olives was disappointing .'],appetizer of olives,negative,0,food quality,disappointing
+['The bread we received was horrible - rock hard and cold - and the `` free `` appetizer of olives was disappointing .'],appetizer of olives,neutral,0,food prices,`` free ``
+['The nakgi-bokum was horrible .'],nakgi-bokum,negative,0,food quality,horrible
+['I ate here a week ago and found most dishes average at best and too expensive .'],dishes,negative,0,food quality,average
+['I ate here a week ago and found most dishes average at best and too expensive .'],dishes,negative,0,food prices,too expensive
+['The hostess was very pleasant .'],hostess,positive,0,service general,pleasant
+"[""Skip this restaurant , it 's a big disappointment .""]",restaurant,negative,0,restaurant general,Skip
+"[""Skip this restaurant , it 's a big disappointment .""]",restaurant,negative,0,restaurant general,disappointment
+"['Service was very good - prompt , attentive and non-intrusive .']",Service,positive,0,service general,good
+"['Service was very good - prompt , attentive and non-intrusive .']",Service,positive,0,service general,prompt
+"['Service was very good - prompt , attentive and non-intrusive .']",Service,positive,0,service general,attentive
+"['Service was very good - prompt , attentive and non-intrusive .']",Service,positive,0,service general,non-intrusive
+"['La Rosa waltzes in , and I think they are doing it the best .']",La Rosa,positive,0,food quality,best
+"[""Toons has recently been redone , so it 's now a very attractive space .""]",Toons,positive,0,ambience general,attractive
+['Sushi experience was unbelievable with my fiance .'],Sushi,positive,0,food quality,unbelievable
+"['I don ’ t usually visit the same establishment more than once , what more twice , but I ’ ll come to Zenkichi anytime for a quiet , unhurried and memorable dinner .']",Zenkichi,positive,0,restaurant general,come to Zenkichi anytime
+"['I don ’ t usually visit the same establishment more than once , what more twice , but I ’ ll come to Zenkichi anytime for a quiet , unhurried and memorable dinner .']",Zenkichi,positive,0,ambience general,quiet
+"['I don ’ t usually visit the same establishment more than once , what more twice , but I ’ ll come to Zenkichi anytime for a quiet , unhurried and memorable dinner .']",Zenkichi,positive,0,ambience general,unhurried
+"['I don ’ t usually visit the same establishment more than once , what more twice , but I ’ ll come to Zenkichi anytime for a quiet , unhurried and memorable dinner .']",Zenkichi,positive,0,ambience general,memorable
+['I highly recommend Caviar Russe to anyone who wants delicious top grade caviar and fantastic service .'],caviar,positive,0,food quality,delicious top grade
+['I highly recommend Caviar Russe to anyone who wants delicious top grade caviar and fantastic service .'],service,positive,0,service general,fantastic
+"['The Steak Tartare is a great bet , they fix it for you at the table .']",Steak Tartare,positive,0,food style_options,great
+"['I like Cafe Noir dont get me wrong , it is jsut that the people who work there are evil and incompetent ! !']",people,negative,0,service general,evil
+"['I like Cafe Noir dont get me wrong , it is jsut that the people who work there are evil and incompetent ! !']",people,negative,0,service general,incompetent
+"['I like Cafe Noir dont get me wrong , it is jsut that the people who work there are evil and incompetent ! !']",Cafe Noir,positive,0,restaurant general,like
+['First of all Dal Bukhara Rocks .'],Dal Bukhara,positive,0,food quality,Rocks
+['The wine list is excellent .'],wine list,positive,0,drinks style_options,excellent
+"['However , our $ 14 drinks were were horrible !']",drinks,negative,0,drinks quality,horrible
+"['However , our $ 14 drinks were were horrible !']",drinks,negative,0,drinks prices,horrible
+"['This is some really good , inexpensive sushi .']",sushi,positive,0,food quality,good
+"['This is some really good , inexpensive sushi .']",sushi,positive,0,food prices,inexpensive
+"[""Took my mom for Mother 's Day , and the maitre d ' was pretty rude .""]",maitre d ',negative,0,service general,rude
+"['However , go for the ambience , and consider the food just a companion for a trip across the world !']",food,neutral,0,food quality,a companion for a trip across the world 
+['The filet mignon dish was superb !'],filet mignon dish,positive,0,food quality,superb
+"[""The service is ok , some of the people did n't get what they asked for .""]",service,neutral,0,service general,ok
+['I have never before eaten 40 pieces of relatively good nigiri .'],nigiri,neutral,0,food quality,good
+"[""The place 's decor and hidden bathrooms made for a good laugh .""]",decor,positive,0,ambience general,good laugh
+"[""The place 's decor and hidden bathrooms made for a good laugh .""]",hidden bathrooms,positive,0,ambience general,good laugh
+['The lobster sandwich is $ 24 and although it was good it was not nearly enough to warrant that price .'],lobster sandwich,positive,0,food quality,good
+['The lobster sandwich is $ 24 and although it was good it was not nearly enough to warrant that price .'],lobster sandwich,negative,0,food prices,not nearly enough to warrant that price
+"['The food is very good , but not outstanding .']",food,neutral,0,food quality,good
+['Downstairs lounge is always a good attraction'],Downstairs lounge,positive,0,ambience general,good attraction
+"[""The spicy Tuna roll is huge and probably the best that I 've had at this price range .""]",spicy Tuna roll,positive,0,food style_options,huge
+"[""The spicy Tuna roll is huge and probably the best that I 've had at this price range .""]",spicy Tuna roll,positive,0,food quality,best
+"[""The spicy Tuna roll is huge and probably the best that I 've had at this price range .""]",spicy Tuna roll,positive,0,food prices,best
+"['The chicken lollipop is my favorite , most of the dishes ( I have to agree with a previous reviewer ) are quite oily and very spicy , espeically the Chilli Chicken .']",chicken lollipop,positive,0,food quality,favorite
+"['The chicken lollipop is my favorite , most of the dishes ( I have to agree with a previous reviewer ) are quite oily and very spicy , espeically the Chilli Chicken .']",dishes,negative,0,food quality,oily
+"['The chicken lollipop is my favorite , most of the dishes ( I have to agree with a previous reviewer ) are quite oily and very spicy , espeically the Chilli Chicken .']",dishes,negative,0,food quality,spicy
+"['The chicken lollipop is my favorite , most of the dishes ( I have to agree with a previous reviewer ) are quite oily and very spicy , espeically the Chilli Chicken .']",Chilli Chicken,negative,0,food quality,oily
+"['The chicken lollipop is my favorite , most of the dishes ( I have to agree with a previous reviewer ) are quite oily and very spicy , espeically the Chilli Chicken .']",Chilli Chicken,negative,0,food quality,spicy
+"['One special roll and one regular roll is enough to fill you up , but save room for dessert !']",dessert,positive,0,food quality,save room
+"['One special roll and one regular roll is enough to fill you up , but save room for dessert !']",special roll,positive,0,food style_options,enough
+"['One special roll and one regular roll is enough to fill you up , but save room for dessert !']",regular roll,positive,0,food style_options,enough
+['The hanger steak was like rubber and the tuna was flavorless not to mention it tasted like it had just been thawed .'],hanger steak,negative,0,food quality,rubber
+['The hanger steak was like rubber and the tuna was flavorless not to mention it tasted like it had just been thawed .'],tuna,negative,0,food quality,flavorless
+"[""Excellent spot for holiday get togethers with co-workers or friends that you have n't seen in a while .""]",spot,positive,0,restaurant miscellaneous,Excellent
+"['Small servings for main entree , i had salmon ( wasnt impressed ) girlfriend had chicken , it was good .']",salmon,negative,0,food quality,wasnt impressed
+"['Small servings for main entree , i had salmon ( wasnt impressed ) girlfriend had chicken , it was good .']",chicken,positive,0,food quality,good
+"['Small servings for main entree , i had salmon ( wasnt impressed ) girlfriend had chicken , it was good .']",servings for main entree,negative,0,food general,Small
+"['Food was just average ... if they lowered the prices just a bit , it would be a bigger draw .']",Food,neutral,0,food quality,average
+"[""I 've also been amazed at all the new additions in the past few years : A new Jazz Bar , the most fantastic Dining Garden , the Best Thin Crust Pizzas , and now a Lasagna Menu which is to die for ( these are not your average lasagnas ) !""]",Dining Garden,positive,0,ambience general,fantastic
+"[""I 've also been amazed at all the new additions in the past few years : A new Jazz Bar , the most fantastic Dining Garden , the Best Thin Crust Pizzas , and now a Lasagna Menu which is to die for ( these are not your average lasagnas ) !""]",Jazz Bar,positive,0,ambience general,new
+"[""I 've also been amazed at all the new additions in the past few years : A new Jazz Bar , the most fantastic Dining Garden , the Best Thin Crust Pizzas , and now a Lasagna Menu which is to die for ( these are not your average lasagnas ) !""]",Thin Crust Pizzas,positive,0,food quality,Best
+"[""I 've also been amazed at all the new additions in the past few years : A new Jazz Bar , the most fantastic Dining Garden , the Best Thin Crust Pizzas , and now a Lasagna Menu which is to die for ( these are not your average lasagnas ) !""]",Lasagna Menu,positive,0,food quality,die for
+"['After dinner the manager grabbed my boyfriend , asked him : Where are you from ... maybe you dont know how things work in America ... and in the end stormed away almost teareyed yelling that tips are the only thing they survive on .']",manager,negative,0,service general,yelling
+['The restaurant is a bit noisy but that is something that can be overlooked once you sit down and enjoy a great meal'],meal,positive,0,food quality,enjoy
+['The restaurant is a bit noisy but that is something that can be overlooked once you sit down and enjoy a great meal'],meal,positive,0,food quality,great
+['The restaurant is a bit noisy but that is something that can be overlooked once you sit down and enjoy a great meal'],restaurant,negative,0,ambience general,noisy
+"[""Do n't miss Bloom 's on your next trip to Manhatten .""]",Bloom 's,positive,0,restaurant general,miss
+['The food was good .'],food,positive,0,food quality,good
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",atmosphere,positive,0,ambience general,unheralded
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",service,positive,0,service general,impecible
+"['The atmosphere is unheralded , the service impecible , and the food magnificant .']",food,positive,0,food quality,magnificant
+"['Two complaints -- their appetizer selection stinks , it would be nice to get some mozzarella sticks on the menu .']",appetizer selection,negative,0,food style_options,complaints
+"['$ 6 and there is much tasty food , all of it fresh and continually refilled .']",food,positive,0,food quality,tasty
+"['$ 6 and there is much tasty food , all of it fresh and continually refilled .']",food,positive,0,food quality,fresh
+"['$ 6 and there is much tasty food , all of it fresh and continually refilled .']",food,positive,0,food prices,refilled
+['The exotic food is beautifully presented and is a delight in delicious combinations .'],exotic food,positive,0,food style_options,beautifully presented
+['The exotic food is beautifully presented and is a delight in delicious combinations .'],exotic food,positive,0,food quality,delight
+"['A gentleman , maybe the manager , came to our table , and without so much as a smile or greeting asked for our order .']",gentleman,negative,0,service general,without so much as a smile or greeting
+"[""The food we ordered was excellent , although I would n't say the margaritas were anything to write home about .""]",food,positive,0,food quality,excellent
+"[""The food we ordered was excellent , although I would n't say the margaritas were anything to write home about .""]",margaritas,neutral,0,drinks quality,anything to write home about
+['But the pizza is way to expensive .'],pizza,negative,0,food prices,expensive
+"['Just straight up cheap , good food .']",food,positive,0,food quality,good
+"['Just straight up cheap , good food .']",food,positive,0,food prices,cheap
+['This dish is my favorite and I always get it when I go there and never get tired of it .'],dish,positive,0,food quality,favorite
+['$ 20 for all you can eat sushi can not be beaten .'],all you can eat sushi,positive,0,food prices,beaten
+['We even had a visit from the Manager who wanted to make sure we were enjoying ourselves .'],Manager,positive,0,service general,enjoying
+"['I was shocked that my friends wanted to stay after the waitress said , `` can I help you `` and `` how many are in your party . ``']",waitress,negative,0,service general,shocked
+['The takeout is great too since they give high quality tupperware as well .'],takeout,positive,0,service general,great
+['You must have the crabmeat lasagna which is out of this world and the chocolate bread pudding for dessert .'],crabmeat lasagna,positive,0,food quality,out of this world
+"['its just a fun place to go , not a five star restaraunt .']",restaraunt,neutral,0,restaurant general,five star
+['Staff is very accomodating .'],Staff,positive,0,service general,accomodating
+"['He served me an Uni Hand roll , which I never had before , and let me tell you ... IT WAS HEAVEN !']",Uni Hand roll,positive,0,food quality,HEAVEN
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",Guacamole+shrimp appetizer,positive,0,food quality,great
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",filet,positive,0,food quality,good
+"[""Guacamole+shrimp appetizer was really great , we both had the filet , very good , did n't much like the frites that came with , but the filet was so good , neither of us cared .""]",frites,negative,0,food quality,did n't much like
+"['The food however , is what one might expect .']",food,negative,0,food quality,expect
+['Great sushi experience .'],sushi,positive,0,food quality,Great
+['Great pizza and fantastic service .'],pizza,positive,0,food quality,Great
+['Great pizza and fantastic service .'],service,positive,0,service general,fantastic
+"[""I 'm glad I was introduced to this place and this is a rare gem in NY .""]",place,positive,0,restaurant general,glad
+"[""Easily the worst stir-fried squid I 've ever tasted .""]",stir-fried squid,negative,0,food quality,worst
+['With the theater 2 blocks away we had a delicious meal in a beautiful room .'],meal,positive,0,food quality,delicious
+['With the theater 2 blocks away we had a delicious meal in a beautiful room .'],room,positive,0,ambience general,beautiful
+"['But nonetheless -- great spot , great food .']",spot,positive,0,restaurant general,great
+"['But nonetheless -- great spot , great food .']",food,positive,0,food quality,great
+['Consistently good Japanese Tapas .'],Japanese Tapas,positive,0,food quality,good
+"['If you go , try the marinara/arrabiatta sauce , the mozzarella en Carozza is mmmmmmmm ... .. everything is just delicious .']",marinara/arrabiatta sauce,positive,0,food quality,try
+"['If you go , try the marinara/arrabiatta sauce , the mozzarella en Carozza is mmmmmmmm ... .. everything is just delicious .']",marinara/arrabiatta sauce,positive,0,food quality,delicious
+"['If you go , try the marinara/arrabiatta sauce , the mozzarella en Carozza is mmmmmmmm ... .. everything is just delicious .']",mozzarella en Carozza,positive,0,food quality,delicious
+['The pizza was pretty good and huge .'],pizza,positive,0,food quality,good
+['The pizza was pretty good and huge .'],pizza,positive,0,food style_options,huge
