@@ -27,7 +27,7 @@ TRAIN_SIZE = 50
 VAL_SIZE = 10
 N_FOLDS = 5 # 新增: 定義fold數量
 
-# 所有的抽樣方法函數保持不變
+#  Saves evaluation metrics to a JSON file (one per fold + a final average).
 def save_results(output_dir, sampling_name, metrics, fold=None):
     """將結果保存為 JSON 檔案，支援fold的結果保存"""
     if fold is not None:
@@ -39,11 +39,14 @@ def save_results(output_dir, sampling_name, metrics, fold=None):
         json.dump(metrics, f, ensure_ascii=False, indent=2)
     logging.info(f"Results saved to {filepath}")
 
+# ════ (STRATEGY) ════
+#  Random sampling: picks num_samples points at random (fixed seed 42).
 def random_seed_sampling(embeddings, num_samples):
     """隨機種子抽樣"""
     np.random.seed(42)
     return np.random.choice(len(embeddings), num_samples, replace=False)
 
+#  Wrapper returning the samples + the strategy proportion (100% — single strategy).
 def random_seed_sampling_with_proportions(embeddings, num_samples):
     """隨機種子抽樣，比例設定為 100%。"""
     indices = random_seed_sampling(embeddings, num_samples)
@@ -51,16 +54,21 @@ def random_seed_sampling_with_proportions(embeddings, num_samples):
     return indices, proportions
 
 
+# ════ اSTRATEGY) ════
+#  Grid sampling: picks evenly-spaced points along the index range (linspace).
 def grid_sampling(embeddings, num_samples):
     """網格抽樣"""
     return np.linspace(0, len(embeddings) - 1, num_samples, dtype=int)
 
+#  Wrapper returning the samples + strategy proportion (100%).
 def grid_sampling_with_proportions(embeddings, num_samples):
     """網格抽樣，比例設定為 100%。"""
     indices = grid_sampling(embeddings, num_samples)
     proportions = {"Grid Sampling (GS)": 1.0}  # 單一策略比例為 100%
     return indices, proportions
 
+# ════ (STRATEGY) ════
+#  Max-Min distance: greedily picks the points farthest apart for wide coverage.
 def max_min_distance_sampling(embeddings, num_samples):
     """最大-最小距離抽樣"""
     center = np.mean(embeddings, axis=0)
@@ -75,12 +83,15 @@ def max_min_distance_sampling(embeddings, num_samples):
         selected.append(next_point)
     return np.array(selected)
     
+# Wrapper returning the samples + strategy proportion (100%).
 def max_min_distance_sampling_with_proportions(embeddings, num_samples):
     indices = max_min_distance_sampling(embeddings, num_samples)
     proportions = {"Max-Min Distance (MMDS)": 1.0}
     return indices, proportions
 
 
+# ════ (STRATEGY) ════
+#  Density-based: picks points in dense regions (via nearest-neighbour distances).
 def density_based_sampling(embeddings, num_samples):
     """密度基礎抽樣"""
     nn = NearestNeighbors(n_neighbors=min(5, len(embeddings) - 1)).fit(embeddings)
@@ -88,12 +99,15 @@ def density_based_sampling(embeddings, num_samples):
     density_scores = np.sum(distances, axis=1)
     return np.argsort(density_scores)[:num_samples]
 
+#  Wrapper returning the samples + strategy proportion (100%).
 def density_based_sampling_with_proportions(embeddings, num_samples):
     indices = density_based_sampling(embeddings, num_samples)
     proportions = {"Density-based (DBS)": 1.0}
     return indices, proportions
 
 
+# ════ (STRATEGY) ════
+#  Max-entropy: picks the points whose neighbourhood is most uncertain/diverse.
 def max_entropy_sampling(embeddings, num_samples):
     """最大熵抽樣"""
     nn = NearestNeighbors(n_neighbors=min(5, len(embeddings) - 1))
@@ -102,17 +116,21 @@ def max_entropy_sampling(embeddings, num_samples):
     entropies = -np.sum(np.log(distances + 1e-10) * distances, axis=1)
     return np.argsort(entropies)[-num_samples:]
 
+# Wrapper returning the samples + strategy proportion (100%).
 def max_entropy_sampling_with_proportions(embeddings, num_samples):
     indices = max_entropy_sampling(embeddings, num_samples)
     proportions = {"Max Entropy (MES)": 1.0}
     return indices, proportions
 
 
+# ════ ا(STRATEGY) — الأفضل في التجربة ════
+#  Cluster sampling: KMeans into num_samples clusters, takes one representative each.
 def cluster_sampling(embeddings, num_samples):
     """聚類抽樣"""
     kmeans = KMeans(n_clusters=num_samples, random_state=42).fit(embeddings)
     return np.array([np.where(kmeans.labels_ == i)[0][0] for i in range(num_samples)])
 
+#  Wrapper returning the samples + strategy proportion (100%).
 def cluster_sampling_with_proportions(embeddings, num_samples):
     indices = cluster_sampling(embeddings, num_samples)
     proportions = {"Cluster Sampling (CS)": 1.0}
@@ -120,6 +138,7 @@ def cluster_sampling_with_proportions(embeddings, num_samples):
 
 
 
+#  Sets default proportions: if None, becomes 100% for the current strategy.
 def set_default_proportions(self, proportions):
     """設置默認比例，若 proportions 為 None，設為 100%。"""
     if proportions is None:
@@ -130,6 +149,8 @@ def set_default_proportions(self, proportions):
 
 
 
+# Builds a 6-feature matrix per point (min/mean/max distance + entropy
+#     + diversity + coverage) — used as inputs to the sampler models (Lasso/Ridge/RF).
 def create_enhanced_features(embeddings, indices):
     """計算更全面的特徵"""
     selected_embeddings = embeddings[indices]
@@ -165,12 +186,13 @@ def create_enhanced_features(embeddings, indices):
     
     return features
 
+# ════(STRATEGY) ════
+#  Random Forest combo: blends the 6 base strategies. Builds per-strategy features,
+#     trains a RandomForest to learn each strategy's weight, then allocates samples by weight.
 def random_forest_combination_with_proportions(embeddings, num_samples, base_prop=0.3):
     n = embeddings.shape[0]
-    
-    # =====================
-    # Step 1: 建立「基礎策略」樣本 (跟原本相同)
-    # =====================
+
+   
     base_indices = {
         "Random Seed (RS)": random_seed_sampling(embeddings, int(n * base_prop)),
         "Grid Sampling (GS)": grid_sampling(embeddings, int(n * base_prop)),
@@ -180,9 +202,7 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
         "Cluster Sampling (CS)": cluster_sampling(embeddings, int(n * base_prop)),
     }
 
-    # =====================
-    # Step 2: 建立「豐富特徵表示」(每個策略四種特徵)
-    # =====================
+
     strategy_features = np.zeros((n, len(base_indices) * 4))
     for i, (strategy_name, indices) in enumerate(base_indices.items()):
         selected_embeddings = embeddings[indices]
@@ -190,26 +210,21 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
         min_distances = np.min(distances, axis=1)
         mean_distances = np.mean(distances, axis=1)
         std_distances = np.std(distances, axis=1)
-        
-        # 熵特徵 (針對 MES，但這裡對所有都計算)
+
         probs = distances / (np.sum(distances, axis=1, keepdims=True) + 1e-10)
         entropy = -np.sum(probs * np.log(probs + 1e-10), axis=1)
         
-        # 填入 strategy_features
+   
         strategy_features[:, i*4]   = min_distances
         strategy_features[:, i*4+1] = mean_distances
         strategy_features[:, i*4+2] = std_distances
         strategy_features[:, i*4+3] = entropy
 
-    # =====================
-    # Step 3: 特徵標準化
-    # =====================
+
     scaler = StandardScaler()
     strategy_features = scaler.fit_transform(strategy_features)
 
-    # =====================
-    # Step 4: 豐富目標值
-    # =====================
+
     center = np.mean(embeddings, axis=0)
     distances_to_center = np.linalg.norm(embeddings - center, axis=1)
     
@@ -217,20 +232,17 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
     nn.fit(embeddings)
     distances, _ = nn.kneighbors(embeddings)
     
-    # RBF 密度
+
     density_scores = np.exp(-np.sum(distances, axis=1))
-    # 多樣性 (方差)
+ 
     diversity_scores = np.var(embeddings, axis=1)
-    # 訊息熵
+
     entropy_scores = -np.sum(distances * np.log(distances + 1e-10), axis=1)
     
-    # 組合 target
+
     target = (distances_to_center * diversity_scores * (entropy_scores ** 2)) / (density_scores ** 0.5)
 
-    # =====================
-    # Step 5: RandomForest + GridSearchCV
-    #       (跟原程式相同，做5次取平均重要度)
-    # =====================
+
     rf_models = []
     importances = []
     for seed_offset in range(5):
@@ -249,67 +261,61 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
         rf_models.append(rf.best_estimator_)
         importances.append(rf.best_estimator_.feature_importances_)
     
-    # 合併所有模型的特徵重要性
+
     final_importances = np.mean(importances, axis=0)
 
-    # 每個策略對應4個特徵 => 取平均
+
     strategy_names = list(base_indices.keys())
     strategy_weights = np.zeros(len(strategy_names))
     for i in range(len(strategy_names)):
         strategy_weights[i] = np.mean(final_importances[i*4:(i+1)*4])
 
-    # =====================
-    # Step 5.1: 針對 MES 做下限
-    # =====================
+
     mes_idx = strategy_names.index("Max Entropy (MES)")
     max_weight = np.max(strategy_weights)
     min_mes_weight = max_weight * 0.8  # MES 至少是 max_weight 的 80%
     if strategy_weights[mes_idx] < min_mes_weight:
         strategy_weights[mes_idx] = min_mes_weight
     
-    # =====================
-    # Step 6: 動態閾值 (去掉過低的權重)
-    # =====================
+
     strategy_weights /= np.sum(strategy_weights)  # 先歸一化
     importance_threshold = np.percentile(strategy_weights, 25)  # 第25百分位
     strategy_weights[strategy_weights < importance_threshold] = 0.0
 
-    # 再次歸一化，確保 sum=1
     total_w = np.sum(strategy_weights)
     if total_w > 0:
         strategy_weights /= total_w
     else:
-        # 如果全部都是 0，就平均分
+
+
         strategy_weights = np.ones(len(strategy_names)) / len(strategy_names)
 
-    # =====================
-    # Step 7: 分配樣本（改良後分兩輪）
-    # =====================
-    # -- 第一輪：給權重大於0的策略每人min_samples
+
+
     strategy_samples = {}
     min_samples_per_strategy = max(1, int(num_samples * 0.1))
 
-    # 找出非零權重的策略
+
     valid_strategies = [
         s for s, w in zip(strategy_names, strategy_weights) if w > 0
     ]
 
-    # 先給這些策略 min_samples
+
     for s in valid_strategies:
         strategy_samples[s] = min_samples_per_strategy
 
     total_allocated = sum(strategy_samples.values())
     if total_allocated > num_samples:
-        # 如果連最小配額都超過了 num_samples，做一個fallback處理：
+
         logging.warning("Min samples sum exceed total. Reducing to 1 per valid strategy.")
         strategy_samples = {s: 1 for s in valid_strategies}
         total_allocated = len(valid_strategies)
 
     remaining = num_samples - total_allocated
 
-    # -- 第二輪：把剩餘樣本依比例分配
+
     if remaining > 0 and valid_strategies:
-        # 取得 valid_strategies 的權重，做一次歸一化
+
         valid_weights = np.array([
             strategy_weights[strategy_names.index(s)] for s in valid_strategies
         ])
@@ -321,16 +327,15 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
                 add_num = int(remaining * valid_weights[i])
                 strategy_samples[valid_strategies[i]] += add_num
                 distributed += add_num
-            # 剩餘都給最後一個
+
             leftover = remaining - distributed
             strategy_samples[valid_strategies[-1]] += leftover
 
-    # 最終檢查
+
     assert sum(strategy_samples.values()) == num_samples, "Sample allocation mismatch."
 
-    # =====================
-    # Step 8: 依分配量抽樣 & 計算實際比例
-    # =====================
+
+
     all_indices = []
     for s, n_samples_s in strategy_samples.items():
         if n_samples_s > 0:
@@ -342,9 +347,9 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
                 sampled = sampled[0]
             all_indices.extend(sampled)
 
-    # 去重
+
     all_indices = np.unique(all_indices)
-    # 如果超量，就隨機壓縮；不足就用 random_seed 補
+
     if len(all_indices) > num_samples:
         selected_indices = np.random.choice(all_indices, num_samples, replace=False)
     else:
@@ -355,14 +360,14 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
         else:
             selected_indices = all_indices
 
-    # 重新計算「實際」的抽樣分配
-    # 為了符合最終實際狀況(若有重複index或去重/補抽)，可做一次統計
+
+
     final_counts = {s: 0 for s in strategy_samples}
     for s, n_samples_s in strategy_samples.items():
-        final_counts[s] = n_samples_s  # 此處直接用「理論分配」, 
-                                       # 若想更細，需再看 selected_indices 裡哪些來自哪策略(較複雜)
+        final_counts[s] = n_samples_s 
 
-    # 最終比例 = 分配量 / num_samples
+
+
     proportions = {
         s: final_counts[s] / num_samples for s in final_counts
     }
@@ -370,10 +375,14 @@ def random_forest_combination_with_proportions(embeddings, num_samples, base_pro
     return selected_indices, proportions
 
 
+# ════ (STRATEGY) ════
+
+# Lasso (L1 regularization): learns sparse weights (zeros out weak strategies)
+#     then allocates samples across the surviving strategies.
 def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0.3):
     n = embeddings.shape[0]
 
-    # Step 1: 使用完整數據集產生基礎策略樣本
+
     base_indices = {
         "Random Seed (RS)": random_seed_sampling(embeddings, int(n * base_prop)),
         "Grid Sampling (GS)": grid_sampling(embeddings, int(n * base_prop)),
@@ -383,55 +392,46 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
         "Cluster Sampling (CS)": cluster_sampling(embeddings, int(n * base_prop)),
     }
 
-    # Step 2: 建立改進的特徵矩陣
+
     strategy_features = np.zeros((n, len(base_indices) * 4))  # 每個策略4個特徵
     for i, (strategy_name, indices) in enumerate(base_indices.items()):
         selected_embeddings = embeddings[indices]
         
-        # 計算距離矩陣
+
         distances = np.linalg.norm(embeddings[:, np.newaxis] - selected_embeddings, axis=2)
         
-        # 1. 距離特徵
+
         min_distances = np.min(distances, axis=1)
         mean_distances = np.mean(distances, axis=1)
         
-        # 2. 熵特徵
         distance_probs = distances / (np.sum(distances, axis=1, keepdims=True) + 1e-10)
         entropy = -np.sum(distance_probs * np.log(distance_probs + 1e-10), axis=1)
         
-        # 3. 多樣性特徵（樣本間的差異性）
         diversity = np.std(distances, axis=1)
         
-        # 存儲特徵
+        
         strategy_features[:, i*4] = min_distances
         strategy_features[:, i*4+1] = mean_distances
         strategy_features[:, i*4+2] = entropy
         strategy_features[:, i*4+3] = diversity
 
-    # Step 3: 特徵標準化
     scaler = StandardScaler()
     strategy_features = scaler.fit_transform(strategy_features)
 
-    # Step 4: 使用改進的目標值計算
-    # 4.1 距離中心性
     center = np.mean(embeddings, axis=0)
     distances_to_center = np.linalg.norm(embeddings - center, axis=1)
     
-    # 4.2 局部密度（使用RBF核）
     nn = NearestNeighbors(n_neighbors=min(5, len(embeddings)))
     nn.fit(embeddings)
     distances, _ = nn.kneighbors(embeddings)
     density_scores = np.exp(-np.sum(distances, axis=1))
     
-    # 4.3 信息熵
     entropy_scores = -np.sum(distances * np.log(distances + 1e-10), axis=1)
     
-    # 組合目標值，增加熵的權重，降低密度的影響
     target = (distances_to_center * (entropy_scores ** 2)) / (density_scores ** 0.5)
-    # 標準化目標值
+
     target = (target - np.mean(target)) / np.std(target)
 
-    # Step 5: 使用 Lasso 並進行交叉驗證
     param_grid = {
         'alpha': [0.0001, 0.001, 0.01]  # 使用較小的 alpha 值以減少稀疏性
     }
@@ -444,18 +444,15 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     lasso_cv.fit(strategy_features, target)
     model = lasso_cv.best_estimator_
 
-    # Step 6: 計算稀疏權重
     strategy_weights = np.zeros(len(base_indices))
     for i in range(len(base_indices)):
         strategy_weights[i] = np.mean(np.abs(model.coef_[i*4:(i+1)*4]))
     
-    # 確保 MES 的權重不會太低
     mes_idx = list(base_indices.keys()).index("Max Entropy (MES)")
     min_mes_weight = np.max(strategy_weights) * 0.8  # MES 至少要有最大權重的 80%
     if strategy_weights[mes_idx] < min_mes_weight:
         strategy_weights[mes_idx] = min_mes_weight
     
-    # 重新標準化權重
     strategy_weights = strategy_weights / np.sum(strategy_weights)
 
     # Step 7: 分配樣本
@@ -463,19 +460,16 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     total_allocated = 0
     min_samples_per_strategy = max(1, int(num_samples * 0.1))
     
-    # 根據權重排序策略
     sorted_strategies = sorted(base_indices.keys(), 
                              key=lambda x: strategy_weights[list(base_indices.keys()).index(x)],
                              reverse=True)
     
-    # 第一輪：分配最小樣本數給有效策略
     for strategy_name in sorted_strategies:
         strategy_idx = list(base_indices.keys()).index(strategy_name)
         if strategy_weights[strategy_idx] > 0:
             strategy_samples[strategy_name] = min_samples_per_strategy
             total_allocated += min_samples_per_strategy
 
-    # 分配剩餘樣本
     remaining_samples = num_samples - total_allocated
     if remaining_samples > 0 and strategy_samples:
         valid_strategies = list(strategy_samples.keys())
@@ -493,7 +487,6 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
         last_strategy = valid_strategies[-1]
         strategy_samples[last_strategy] += final_remaining
 
-    # Step 8: 生成最終樣本
     all_indices = []
     proportions = {}
     for strategy_name, n_samples in strategy_samples.items():
@@ -507,7 +500,6 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
             all_indices.extend(indices)
             proportions[strategy_name] = n_samples / num_samples
 
-    # 確保樣本數量正確
     all_indices = np.unique(all_indices)
     if len(all_indices) > num_samples:
         selected_indices = np.random.choice(all_indices, num_samples, replace=False)
@@ -521,6 +513,9 @@ def lasso_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
 
     return selected_indices, proportions
 
+# ════ (STRATEGY) ════
+#  Ridge (L2 regularization): like Lasso but spreads weights smoothly (no hard zeros),
+#     with a special boost for the Max-Entropy (MES) strategy weight.
 def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0.3):
     n = embeddings.shape[0]
     """
@@ -536,9 +531,7 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     7. 產生最終選取的索引與各策略所佔比例。
     """
     
-    # =====================
-    # Step 1: 使用完整數據集產生基礎策略樣本
-    # =====================
+
     base_indices = {
         "Random Seed (RS)": random_seed_sampling(embeddings, int(n * base_prop)),
         "Grid Sampling (GS)": grid_sampling(embeddings, int(n * base_prop)),
@@ -548,45 +541,32 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
         "Cluster Sampling (CS)": cluster_sampling(embeddings, int(n * base_prop)),
     }
 
-    # =====================
-    # Step 2: 建立「加強版」特徵矩陣
-    #  - strategy_features[:, i] = 到第 i 個策略所選樣本之「最近距離」
-    # =====================
+  
     strategy_features = np.zeros((n, len(base_indices)))
     for i, (strategy_name, indices) in enumerate(base_indices.items()):
         selected_embeddings = embeddings[indices]
-        # 計算每個點到該策略選取樣本的最近距離
+
         distances = np.min(
             np.linalg.norm(embeddings[:, np.newaxis] - selected_embeddings, axis=2),
             axis=1
         )
         strategy_features[:, i] = distances
 
-    # =====================
-    # Step 3: 特徵標準化
-    # =====================
+
     scaler = StandardScaler()
     strategy_features = scaler.fit_transform(strategy_features)
 
-    # =====================
-    # Step 4: 定義「加強版」目標值
-    #   - 距中心距離 (越遠可能越需代表性)
-    #   - 負密度 (周圍越密集，越需要代表)
-    #   => target = 距中心距離 * 負密度
-    # =====================
+
     center = np.mean(embeddings, axis=0)
     distances_to_center = np.linalg.norm(embeddings - center, axis=1)
     
-    # 使用最近鄰估計局部密度（此處簡單用距離和的負值代表）
     nn = NearestNeighbors(n_neighbors=min(5, len(embeddings)))
     nn.fit(embeddings)
     density_scores = -np.sum(nn.kneighbors(embeddings)[0], axis=1)
     
     target = distances_to_center * density_scores
 
-    # =====================
-    # Step 5: 使用 Ridge + GridSearchCV 進行交叉驗證
-    # =====================
+
     param_grid = {'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0]}
     ridge_cv = GridSearchCV(
         Ridge(random_state=42, max_iter=10000),
@@ -597,13 +577,7 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     ridge_cv.fit(strategy_features, target)
     model = ridge_cv.best_estimator_
 
-    # =====================
-    # Step 6: 根據 Ridge 係數計算策略權重
-    #   - 先取絕對值
-    #   - 做個閾值過濾（選擇性，可依實際需求調整）
-    #   - 重新歸一化
-    # =====================
-    coef_threshold = np.std(model.coef_) * 0.1  # 係數標準差的 10% 作為閾值 (可調)
+    coef_threshold = np.std(model.coef_) * 0.1 
     strategy_weights = np.abs(model.coef_)
     strategy_weights[strategy_weights < coef_threshold] = 0.0
 
@@ -613,45 +587,37 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     else:
         strategy_weights = strategy_weights / np.sum(strategy_weights)
 
-    # =====================
-    # Step 6.1: 強化 MES 特徵
-    #   - 這裡簡單示範：對 MES 的權重再乘上一個倍數 (例如 1.2)
-    #   - 調整後要重新歸一化
-    # =====================
+    
     mes_name = "Max Entropy (MES)"
     mes_index = list(base_indices.keys()).index(mes_name)
-    # 你可以依需求調整此倍數，或改成固定加法等方式
+
     mes_boost_factor = 1.2
     strategy_weights[mes_index] *= mes_boost_factor
-    strategy_weights /= np.sum(strategy_weights)  # 重新歸一化
+    strategy_weights /= np.sum(strategy_weights)  
 
-    # =====================
-    # Step 7: 根據最終權重分配樣本
-    #   - 與原先的兩輪分配邏輯相同：
-    #     先給「有效策略」每個最小樣本數，再依權重分配剩餘
-    # =====================
+
     strategy_samples = {}
     total_allocated = 0
     min_samples_per_strategy = max(1, int(num_samples * 0.1))  # 最小樣本數（10%）
     
-    # 根據權重排序策略（從大到小）
+
     sorted_strategies = sorted(
         base_indices.keys(),
         key=lambda x: strategy_weights[list(base_indices.keys()).index(x)],
         reverse=True
     )
     
-    # 第一輪：分配最小樣本數給有效策略（權重大於 0）
+
     for strategy_name in sorted_strategies:
         strategy_idx = list(base_indices.keys()).index(strategy_name)
         if strategy_weights[strategy_idx] > 0:
             strategy_samples[strategy_name] = min_samples_per_strategy
             total_allocated += min_samples_per_strategy
 
-    # 計算剩餘可分配樣本數
+
     remaining_samples = num_samples - total_allocated
     
-    # 第二輪：根據權重比例分配剩餘樣本
+
     if remaining_samples > 0 and strategy_samples:
         valid_strategies = list(strategy_samples.keys())
         valid_weights = np.array([
@@ -666,17 +632,15 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
             strategy_samples[strategy_name] += additional_samples
             total_allocated += additional_samples
         
-        # 將最後的餘量給最後一個策略
+
         final_remaining = num_samples - total_allocated
         last_strategy = valid_strategies[-1]
         strategy_samples[last_strategy] += final_remaining
 
-    # 驗證總樣本數
+
     assert sum(strategy_samples.values()) == num_samples, "Sample allocation error"
 
-    # =====================
-    # Step 8: 根據最終的分配量進行取樣，產出 indices 與 proportions
-    # =====================
+
     all_indices = []
     proportions = {}
     for strategy_name, n_samples in strategy_samples.items():
@@ -685,17 +649,18 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
             if sampling_function is None:
                 raise KeyError(f"Sampling method {strategy_name} not found.")
             indices = sampling_function(embeddings, n_samples)
-            # 有些策略可能回傳 (indices, info)，因此需要判斷
+    
+
             if isinstance(indices, tuple):
                 indices = indices[0]
             all_indices.extend(indices)
             proportions[strategy_name] = n_samples / num_samples
 
-    # 驗證比例總和
+
     if not math.isclose(sum(proportions.values()), 1.0, rel_tol=1e-9):
         logging.warning("Proportions do not sum to 1.0, got: %.5f", sum(proportions.values()))
 
-    # 確保樣本數量正確（如果超過就隨機抽取）
+ 
     all_indices = np.unique(all_indices)
     if len(all_indices) > num_samples:
         selected_indices = np.random.choice(all_indices, num_samples, replace=False)
@@ -710,12 +675,12 @@ def ridge_sample_selection_with_proportions(embeddings, num_samples, base_prop=0
     return selected_indices, proportions
 
 
+# ════  (STRATEGY) ════
+#  Elastic Net: combines L1 + L2 (a mix of Lasso + Ridge) to distribute weights.
 def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_prop=0.3):
     n = embeddings.shape[0]
     """ElasticNet 特徵選擇策略，基於完整數據的 L1 和 L2 正則化動態調整策略比例，並加強 MES 權重。"""
-    # =====================
-    # Step 1: 產生基礎策略樣本
-    # =====================
+
     base_indices = {
         "Random Seed (RS)": random_seed_sampling(embeddings, int(n * base_prop)),
         "Grid Sampling (GS)": grid_sampling(embeddings, int(n * base_prop)),
@@ -725,28 +690,22 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
         "Cluster Sampling (CS)": cluster_sampling(embeddings, int(n * base_prop)),
     }
 
-    # =====================
-    # Step 2: 建立特徵矩陣 (多個距離度量的組合)
-    # =====================
+
     strategy_features = np.zeros((n, len(base_indices)))
     for i, (strategy_name, indices) in enumerate(base_indices.items()):
         selected_embeddings = embeddings[indices]
-        # 計算多種距離度量
+
         distances = np.min(np.linalg.norm(embeddings[:, np.newaxis] - selected_embeddings, axis=2), axis=1)
         mean_distance = np.mean(np.linalg.norm(embeddings[:, np.newaxis] - selected_embeddings, axis=2), axis=1)
         max_distance = np.max(np.linalg.norm(embeddings[:, np.newaxis] - selected_embeddings, axis=2), axis=1)
-        # 依不同權重組合
+       
         strategy_features[:, i] = 0.4 * distances + 0.3 * mean_distance + 0.3 * max_distance
 
-    # =====================
-    # Step 3: 特徵標準化
-    # =====================
+   
     scaler = StandardScaler()
     strategy_features = scaler.fit_transform(strategy_features)
 
-    # =====================
-    # Step 4: 定義目標值 (結合距離中心 + 負密度 + 方差)
-    # =====================
+    
     center = np.mean(embeddings, axis=0)
     distances_to_center = np.linalg.norm(embeddings - center, axis=1)
 
@@ -757,12 +716,9 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
     variance = np.var(embeddings, axis=1)
 
     target = distances_to_center * density_scores * variance
-    # 為了讓訓練更穩定，對 target 做一次標準化
     target = (target - np.mean(target)) / (np.std(target) + 1e-9)
 
-    # =====================
-    # Step 5: 使用 ElasticNet + GridSearchCV 調參
-    # =====================
+    
     param_grid = {
         'alpha': [0.00001, 0.0001, 0.001],  # 更低的 alpha 範圍
         'l1_ratio': [0.1, 0.25, 0.5, 0.75, 0.9]
@@ -778,42 +734,34 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
     logging.info(f"Best ElasticNet parameters: {elastic_net_cv.best_params_}")
     model = elastic_net_cv.best_estimator_
 
-    # =====================
-    # Step 6: 計算稀疏權重 (基於模型絕對係數)
-    # =====================
+   
     coef_abs = np.abs(model.coef_)
-    # 自適應閾值
     coef_threshold = np.mean(coef_abs) - 0.5 * np.std(coef_abs)
     strategy_weights = coef_abs.copy()
     strategy_weights[strategy_weights < coef_threshold] = 0.0
 
     if np.sum(strategy_weights) == 0:
-        # 如果全部被清空，就改用原始係數比例
+
         strategy_weights = coef_abs.copy()
 
-    # =====================
-    # Step 6.1: 強化 MES 特徵
-    #   - 對 MES 的權重乘上一個倍數，然後重新歸一化
-    # =====================
+   
     mes_name = "Max Entropy (MES)"
     mes_index = list(base_indices.keys()).index(mes_name)
-    mes_boost_factor = 1.2  # 你可以依需求調整此倍數
+    mes_boost_factor = 1.2  
     strategy_weights[mes_index] *= mes_boost_factor
 
-    # 最後做一次歸一化
+    
     strategy_weights_sum = np.sum(strategy_weights)
     if strategy_weights_sum > 0:
         strategy_weights /= strategy_weights_sum
     else:
-        # 理論上不應該走到這裡，但若權重全為 0，就平均分配
         strategy_weights = np.ones(len(base_indices)) / len(base_indices)
 
     for name, weight in zip(base_indices.keys(), strategy_weights):
         logging.info(f"{name}: {weight:.4f}")
 
-    # =====================
-    # Step 7: 根據最終權重分配樣本 (兩輪分配)
-    # =====================
+ 
+
     strategy_samples = {}
     total_allocated = 0
     min_samples_per_strategy = max(1, int(num_samples * 0.1))
@@ -825,7 +773,6 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
         reverse=True
     )
 
-    # 第一輪：給每個有權重的策略一個最小量
     for strategy_name in sorted_strategies:
         strategy_idx = list(base_indices.keys()).index(strategy_name)
         if strategy_weights[strategy_idx] > 0:
@@ -833,7 +780,6 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
             total_allocated += min_samples_per_strategy
             logging.info(f"Initial allocation for {strategy_name}: {min_samples_per_strategy}")
 
-    # 第二輪：剩餘樣本依權重分配
     remaining_samples = num_samples - total_allocated
     logging.info(f"Remaining samples after initial allocation: {remaining_samples}")
 
@@ -852,19 +798,15 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
             total_allocated += additional_samples
             logging.info(f"Additional allocation for {strategy_name}: {additional_samples}")
 
-        # 最後餘量都給最後一個
         final_remaining = num_samples - total_allocated
         last_strategy = valid_strategies[-1]
         strategy_samples[last_strategy] += final_remaining
         logging.info(f"Final allocation for {last_strategy}: {final_remaining}")
 
-    # 驗證總數量
     total_samples = sum(strategy_samples.values())
     assert total_samples == num_samples, f"Sample allocation error: got {total_samples}, expected {num_samples}"
 
-    # =====================
-    # Step 8: 產生最終樣本
-    # =====================
+   
     all_indices = []
     proportions = {}
     for strategy_name, n_samples in strategy_samples.items():
@@ -879,12 +821,10 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
             proportions[strategy_name] = n_samples / num_samples
             logging.info(f"Final proportion for {strategy_name}: {proportions[strategy_name]:.4f}")
 
-    # 確認比例之和
     total_proportion = sum(proportions.values())
     assert math.isclose(total_proportion, 1.0, rel_tol=1e-9), \
         f"Proportion error: got {total_proportion}, expected 1.0"
 
-    # 若最終索引超量，就隨機抽取；否則若不足就補抽
     all_indices = np.unique(all_indices)
     if len(all_indices) > num_samples:
         selected_indices = np.random.choice(all_indices, num_samples, replace=False)
@@ -899,16 +839,17 @@ def elastic_net_sample_selection_with_proportions(embeddings, num_samples, base_
     return selected_indices, proportions
 
 
+# ════   (STRATEGY) ════
+#  Equal proportion: splits samples equally across the 6 base strategies (num/6 each).
 def equal_proportion_sampling(embeddings, num_samples):
     """
     均等分配每個策略的樣本數量。
     """
-    num_per_strategy = num_samples // 6  # 平均分為 6 部分
+    num_per_strategy = num_samples // 6  
     all_indices = []
 
-    proportions = {}  # 初始化比例字典
+    proportions = {}  
 
-    # 使用每個策略選取樣本
     for strategy_name in ["Random Seed (RS)", "Grid Sampling (GS)", 
                           "Max-Min Distance (MMDS)", "Density-based (DBS)", 
                           "Max Entropy (MES)", "Cluster Sampling (CS)"]:
@@ -916,14 +857,11 @@ def equal_proportion_sampling(embeddings, num_samples):
         if sampling_function is None:
             raise KeyError(f"Sampling method {strategy_name} not found.")
         
-        # 為每個策略選取樣本
         indices, _ = sampling_function(embeddings, num_per_strategy)
         all_indices.extend(indices)
 
-        # 設定該策略的比例
         proportions[strategy_name] = num_per_strategy / num_samples
 
-    # 去重並檢查樣本是否足夠
     all_indices = np.unique(all_indices)
     if len(all_indices) > num_samples:
         selected_indices = np.random.choice(all_indices, num_samples, replace=False)
@@ -933,7 +871,6 @@ def equal_proportion_sampling(embeddings, num_samples):
     else:
         selected_indices = all_indices
 
-    # 確保總比例為1
     total_allocated = sum(proportions.values())
     for strategy_name in proportions:
         proportions[strategy_name] /= total_allocated
@@ -971,6 +908,8 @@ SAMPLING_METHODS = {
 
 
 
+# ════ تقييم: LCS ════
+#  Computes the Longest Common Subsequence (LCS) length between two strings via DP.
 def lcs_length(x, y):
     """計算字串 x, y 的最長共同子序列 (LCS) 長度。"""
     m, n = len(x), len(y)
@@ -984,6 +923,8 @@ def lcs_length(x, y):
     return dp[m][n]
 
 
+# ════ تقييم: LCS ════
+#  Partial-match score = LCS length ÷ longer string length (a value in 0..1).
 def compute_lcs_score(pred_term, ref_term):
     """計算 pred_term 與 ref_term 的 LCS 部分匹配分數。"""
     if not pred_term or not ref_term:
@@ -991,6 +932,11 @@ def compute_lcs_score(pred_term, ref_term):
     length = lcs_length(pred_term, ref_term)
     return length / max(len(pred_term), len(ref_term))
 
+# ════ تقييم (HUNGARIAN) ════
+#  Computes F1 for one field. Per review it builds a similarity matrix between
+#     predictions and gold, then linear_sum_assignment (Hungarian algorithm) finds the
+#     best one-to-one matching maximizing the total. use_lcs=True for text fields
+#     (partial), False for exact match.
 def compute_f1_score(predictions, references, task_key, use_lcs=False):
     """
     使用匈牙利演算法 (Hungarian algorithm) 計算多對多 partial match 的 F1 分數。
@@ -1033,11 +979,9 @@ def compute_f1_score(predictions, references, task_key, use_lcs=False):
         total_precision += precision
         total_recall += recall
 
-    # 最後的 Precision 和 Recall
     avg_precision = total_precision / n
     avg_recall = total_recall / n
 
-    # 使用 (2 * P * R) / (P + R) 計算最終 F1
     if (avg_precision + avg_recall) > 0:
         final_f1 = 2 * avg_precision * avg_recall / (avg_precision + avg_recall)
     else:
@@ -1050,6 +994,8 @@ def compute_f1_score(predictions, references, task_key, use_lcs=False):
     }
 
 
+#  Distributes num_samples across strategies by weight (Largest-Remainder method:
+#     assign integer parts first, then give leftovers to the largest fractional parts).
 def allocate_samples(strategy_weights, num_samples):
     """
     基於權重分配樣本數，確保總和為 num_samples
@@ -1058,30 +1004,30 @@ def allocate_samples(strategy_weights, num_samples):
         strategy_weights: 各策略的權重
         num_samples: 總樣本數
     """
-    # 首先標準化權重確保總和為1
     normalized_weights = strategy_weights / np.sum(strategy_weights)
     
-    # 計算每個策略的理論樣本數（可能有小數）
     theoretical_samples = normalized_weights * num_samples
     
-    # 首先分配整數部分
     allocated_samples = np.floor(theoretical_samples).astype(int)
     remaining_samples = num_samples - np.sum(allocated_samples)
     
-    # 對剩餘樣本，根據小數部分大小排序分配
     decimal_parts = theoretical_samples - allocated_samples
     if remaining_samples > 0:
-        # 取前 remaining_samples 個最大的小數部分對應的索引
+
         indices = np.argsort(decimal_parts)[-int(remaining_samples):]
         allocated_samples[indices] += 1
     
     return allocated_samples
 
+# ════ (CHECKPOINT) ════
+#  Saves/restores experiment progress so it can resume after any interruption.
 class CheckpointManager:
+    #  Constructor: sets the path of the checkpoint.json file.
     def __init__(self, output_dir):
         self.output_dir = output_dir
         self.checkpoint_file = os.path.join(output_dir, "checkpoint.json")
         
+    #  Records the current fold of the running strategy into the checkpoint file.
     def save_checkpoint(self, sampling_method, current_fold):
         checkpoint = self.load_checkpoint() or {"completed_methods": {}}
 
@@ -1101,17 +1047,18 @@ class CheckpointManager:
 
 
             
+    # Reads the checkpoint file if it exists, otherwise returns None.
     def load_checkpoint(self):
         if os.path.exists(self.checkpoint_file):
             with open(self.checkpoint_file, "r") as f:
                 return json.load(f)
         return None
         
+    #  Marks a strategy as "completed" once all its folds are done (to skip it later).
     def mark_completed(self, sampling_method):
-        # 讀取現有的 checkpoint
+
         checkpoint = self.load_checkpoint() or {"completed_methods": {}}
         
-        # 標記當前方法為已完成
         if sampling_method in checkpoint["completed_methods"]:
             checkpoint["completed_methods"][sampling_method]["completed"] = True
         else:
@@ -1120,12 +1067,17 @@ class CheckpointManager:
                 "completed": True
             }
         
-        # 保存更新後的 checkpoint
         with open(self.checkpoint_file, "w") as f:
             json.dump(checkpoint, f, indent=2)
 
 
+# ════════════════════════════════════════════════════════════════════
+# Main experiment class — runs the full lifecycle for ONE sampling strategy
+# ════════════════════════════════════════════════════════════════════
 class Experiment:
+    
+    #  Constructor: stores the strategy name+function and loads the sentence encoder
+    #     all-MiniLM-L6-v2 (turns text into 384-dim vectors).
     def __init__(self, sampling_name="Random Seed"):
         self.sampling_name = sampling_name
         self.sampling_func = SAMPLING_METHODS[sampling_name]
@@ -1137,6 +1089,8 @@ class Experiment:
         # 初始化 SentenceTransformer
         self.model = SentenceTransformer(MODEL_NAME)
 
+    # ──  البيانات ──
+    #  Loads the JaquanTW/fewshot-absaquad dataset (full train + test); no sampling yet.
     def load_data(self):
         """只加載原始數據，不進行採樣"""
         logging.info(f"Loading datasets...")
@@ -1146,15 +1100,16 @@ class Experiment:
         logging.info(f"Full training dataset size: {len(self.full_dataset)}")
         logging.info(f"Test dataset size: {len(self.test_dataset)}")
 
+    # ──  أخذ العينات ──
+    #  Encodes the fold's texts into vectors, then applies the chosen strategy to
+    #     select 50 training examples (TRAIN_SIZE). Returns the picked data + proportions.
     def sample_fold_data(self, fold_data):
         """對每個 fold 的訓練數據進行採樣"""
         logging.info(f"Applying sampling strategy: {self.sampling_name}")
         
-        # 生成當前 fold 的 embeddings
         texts = [x["text"] for x in fold_data]
         embeddings = self.model.encode(texts, show_progress_bar=True)
         
-        # 應用採樣策略
         if self.sampling_name in ["Lasso Selection (LS)", "Elastic Net (EN)", 
                                 "Random Forest (RF)", "Ridge Selection (RidgeS)"]:
             sampled_indices, proportions = self.sampling_func(embeddings, TRAIN_SIZE)
@@ -1166,7 +1121,6 @@ class Experiment:
                 sampled_indices = result
                 proportions = {self.sampling_name: 1.0}
 
-        # 處理採樣索引
         if isinstance(sampled_indices, np.ndarray):
             sampled_indices = sampled_indices.flatten().astype(int).tolist()
         elif isinstance(sampled_indices, list):
@@ -1174,26 +1128,27 @@ class Experiment:
         elif isinstance(sampled_indices, tuple):
             sampled_indices = [int(i) for i in np.ravel(sampled_indices)]
 
-        # 返回採樣後的數據和比例
         sampled_data = fold_data.select(sampled_indices)
         logging.info(f"Sampled data size: {len(sampled_data)}")
         return sampled_data, proportions
     
+    #  Helper: trains and evaluates the model on a single fold, returns its metrics.
     def train_and_evaluate_fold(self, train_data, val_data, fold_num):
         """在單個fold上訓練和評估模型"""
         logging.info(f"Training and evaluating fold {fold_num + 1}/{N_FOLDS}")
         
-        # 設置當前fold的數據
         self.train_dataset = train_data
         self.val_dataset = val_data
         
-        # 訓練模型
         self.train_quad_model(fold_num)
 
-        # 評估並返回結果
         metrics = self.evaluate(fold_num)
         return metrics
 
+    #  التدريب (SetFit التبايني) ──
+    #  Trains ONE SetFit model that predicts the whole quad as text "span|ac|ot|label".
+    #     SetFit = contrastive fine-tuning of the sentence encoder + a classifier head.
+    #     make_quad_label merges the four fields into a single label per example.
     def train_quad_model(self, fold_num):
         """Train unified quadruple model."""
         logging.info(f"Training Quad model for fold {fold_num + 1}...")
@@ -1228,6 +1183,9 @@ class Experiment:
         self.models["quad"] = quad_model
         quad_model.save_pretrained(f"{OUTPUT_DIR}/fold_{fold_num + 1}/quad_model")
 
+    # ──  التقييم الصارم ──
+    # Exact quad match: score 1 only if all four fields match, then Hungarian
+    #     finds the best assignment, and Precision/Recall/F1 are computed.
     def compute_quad_exact_match(self, gold_data, pred_data):
         n = len(gold_data)
         totP, totR = 0.0, 0.0
@@ -1251,6 +1209,9 @@ class Experiment:
         f1 = 2 * avgP * avgR / (avgP + avgR) if (avgP + avgR) > 0 else 0.0
         return avgP, avgR, f1
 
+    # ──  التقييم الجزئي ──
+    #  Partial quad match: category & label exact, while span & ot use LCS;
+    #     pair score = (ac + label + LCS(span) + LCS(ot)) / 4, then Hungarian + F1.
     def compute_quad_partial_match(self, gold_data, pred_data):
         n = len(gold_data)
         totP, totR = 0.0, 0.0
@@ -1278,6 +1239,8 @@ class Experiment:
         return avgP, avgR, f1
 
 
+    #  Runs the model on eval data (val during a fold, test at the end), splits the
+    #     "span|ac|ot|label" output back into a quad, then computes Exact + Partial.
     def evaluate(self, fold_num=None):
         """Evaluate the quad model and return results."""
         logging.info(f"Evaluating models for fold {fold_num + 1 if fold_num is not None else 'final'}...")
@@ -1320,6 +1283,7 @@ class Experiment:
         logging.info(f"Quad Partial Match: {metrics['quad']['partial_match']}")
         return metrics
 
+    #  Averages the metrics across all 5 folds (the cross-validation result).
     def calculate_average_metrics(self):
         """Calculate average metrics across all folds."""
         avg_metrics = {
@@ -1338,6 +1302,9 @@ class Experiment:
                 avg_metrics["quad"][match_type][key] /= n_folds
         return avg_metrics
 
+    # ════ المُشغّل الرئيسي (الانتقال من مرحلة لأخرى) ════
+    #  Full flow: restore checkpoint → load data → 5-fold split →
+    #     per fold: sample → train SetFit → evaluate → save → then average + final test.
     def run(self):
         """執行完整的實驗流程，包含斷點恢復機制"""
         checkpoint_manager = CheckpointManager(OUTPUT_DIR)
@@ -1351,17 +1318,14 @@ class Experiment:
         
         self.load_data()
         
-        # 創建 KFold 對象
         kf = KFold(n_splits=N_FOLDS, shuffle=True, random_state=42)
         dataset_indices = list(range(len(self.full_dataset)))
         
-        # 確定起始 fold
         start_fold = 0
         if checkpoint and "completed_methods" in checkpoint and self.sampling_name in checkpoint["completed_methods"]:
             start_fold = checkpoint["completed_methods"][self.sampling_name]["current_fold"]
             logging.info(f"Resuming from fold {start_fold + 1}")
         
-        # 執行剩餘的 folds
         for fold_num, (train_idx, val_idx) in enumerate(kf.split(dataset_indices)):
             if fold_num < start_fold:
                 continue
@@ -1369,13 +1333,11 @@ class Experiment:
             logging.info(f"\nStarting fold {fold_num + 1}/{N_FOLDS}")
             checkpoint_manager.save_checkpoint(self.sampling_name, fold_num)
             
-            # 分割數據
             train_fold = self.full_dataset.select(train_idx.tolist())
             val_fold = self.full_dataset.select(val_idx.tolist())
             
-            # 只對訓練集進行採樣
             self.train_dataset, self.sample_proportions = self.sample_fold_data(train_fold)
-            # 驗證集保持原樣
+
             self.val_dataset = val_fold
             
             logging.info(f"Training set size after sampling: {len(self.train_dataset)}")
@@ -1394,7 +1356,6 @@ class Experiment:
             
             logging.info(f"Completed fold {fold_num + 1}/{N_FOLDS}")
         
-        # 計算和保存最終結果
         avg_metrics = self.calculate_average_metrics()
         avg_metrics["Sample_Proportions"] = self.sample_proportions
         save_results(OUTPUT_DIR, f"{self.sampling_name}_5fold_average", avg_metrics)
@@ -1409,11 +1370,9 @@ class Experiment:
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
-    # 從 checkpoint 讀取上次中斷的方法
     checkpoint_manager = CheckpointManager(OUTPUT_DIR)
     checkpoint = checkpoint_manager.load_checkpoint()
     
-    # 檢查是否有未完成的方法
     if checkpoint and "completed_methods" in checkpoint:
         uncompleted_methods = [
             method for method, status in checkpoint["completed_methods"].items() 
@@ -1429,10 +1388,9 @@ if __name__ == "__main__":
         start_method = None
 
 
-    # 執行所有抽樣方法
     methods_to_run = list(SAMPLING_METHODS.keys())
     if start_method:
-        # 如果有未完成的方法，從那個方法開始
+
         start_idx = methods_to_run.index(start_method)
         methods_to_run = methods_to_run[start_idx:]
         
